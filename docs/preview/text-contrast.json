@@ -1,0 +1,65 @@
+{
+  "summaries": [
+    {
+      "route": "/",
+      "checked": 109,
+      "failures": 0
+    },
+    {
+      "route": "/about",
+      "checked": 64,
+      "failures": 0
+    },
+    {
+      "route": "/services",
+      "checked": 95,
+      "failures": 0
+    },
+    {
+      "route": "/services/corporate-governance",
+      "checked": 74,
+      "failures": 0
+    },
+    {
+      "route": "/services/business-incorporation",
+      "checked": 75,
+      "failures": 0
+    },
+    {
+      "route": "/consultation",
+      "checked": 61,
+      "failures": 0
+    },
+    {
+      "route": "/contact",
+      "checked": 49,
+      "failures": 0
+    },
+    {
+      "route": "/insights",
+      "checked": 52,
+      "failures": 0
+    },
+    {
+      "route": "/insights/governance-beyond-the-boardroom",
+      "checked": 59,
+      "failures": 0
+    },
+    {
+      "route": "/faqs",
+      "checked": 41,
+      "failures": 0
+    },
+    {
+      "route": "/privacy-policy",
+      "checked": 47,
+      "failures": 0
+    },
+    {
+      "route": "/terms-of-service",
+      "checked": 48,
+      "failures": 0
+    }
+  ],
+  "failures": []
+}

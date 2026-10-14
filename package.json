@@ -1,0 +1,44 @@
+{
+  "name": "stratum-governance-Ltd",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build --webpack",
+    "start": "next start",
+    "lint": "eslint .",
+    "typecheck": "tsc --noEmit",
+    "test": "node --import tsx tests/core.test.ts && node --import ./tests/register-server-only.mjs --import tsx tests/email-flow.test.ts",
+    "qa": "node scripts/browser-qa.mjs"
+  },
+  "dependencies": {
+    "next": "16.4.0",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "lucide-react": "1.54.0",
+    "react-hook-form": "7.89.0",
+    "@hookform/resolvers": "5.9.1",
+    "zod": "3.25.76",
+    "resend": "6.32.1",
+    "server-only": "0.0.1",
+    "@upstash/redis": "1.39.0",
+    "@upstash/ratelimit": "2.2.0",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.7.0",
+    "class-variance-authority": "0.7.1",
+    "radix-ui": "1.7.0",
+    "cn": "0.4.0"
+  },
+  "devDependencies": {
+    "typescript": "6.0.3",
+    "@types/node": "20.19.43",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/postcss": "4.3.3",
+    "eslint": "9.39.5",
+    "eslint-config-next": "16.4.0",
+    "tsx": "4.23.15",
+    "@playwright/test": "1.64.0"
+  }
+}
