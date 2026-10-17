@@ -1,6 +1,14 @@
 import type { NextConfig } from "next";
+import serviceAliases from "./src/data/service-aliases.json";
 const config: NextConfig = {
   poweredByHeader: false,
+  async redirects() {
+    return Object.entries(serviceAliases).map(([from, to]) => ({
+      source: `/services/${from}`,
+      destination: `/services/${to}`,
+      permanent: true,
+    }));
+  },
   async headers() {
     return [
       {

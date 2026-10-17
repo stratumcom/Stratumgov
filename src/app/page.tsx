@@ -12,6 +12,10 @@ import { Container } from "@/components/shared/container";
 import { CTA } from "@/components/shared/cta";
 import { Approach } from "@/components/home/approach";
 import { TestimonialsSection } from "@/components/home/testimonials-section";
+import { ComplianceSection } from "@/components/home/compliance-section";
+import { PromotionsSection } from "@/components/home/promotions-section";
+import { companyIntroduction } from "@/data/company-profile";
+import { HealthSafetySection } from "@/components/home/health-safety-section";
 import { ServiceGrid } from "@/components/services/service-grid";
 import { FAQAccordion } from "@/components/faqs/faq-accordion";
 import { InsightCard } from "@/components/insights/insight-card";
@@ -38,8 +42,9 @@ export default function Home() {
               <span>Stratum</span> <span>Governance Ltd.</span>
             </h1>
             <p className="hero-description">
-              Navigate corporate governance and regulatory responsibilities with
-              a clear perspective. Make your next business move with confidence.
+              Launch, structure and grow your business in Nigeria with corporate
+              governance, institutional management and regulatory compliance
+              support for local founders and international investors.
             </p>
             <div className="hero-actions">
               <Button
@@ -90,17 +95,14 @@ export default function Home() {
           </div>
           <div className="md:pt-7">
             <p className="text-base leading-8 text-muted-foreground">
-              Corporate compliance is part of building a business that is ready
-              for what comes next. Stratum Governance Ltd. brings a
-              considered perspective to governance, regulatory advisory and
-              corporate services.
+              {companyIntroduction}
             </p>
             <p className="mt-5 text-base leading-7 text-muted-foreground">
               Our starting point is simple: understand your needs, define the
               right scope and make the next steps clear.
             </p>
             <Link href="/about" className="text-link mt-7">
-              Get to know stratumgov
+              Discover our full profile
               <ArrowUpRight className="size-4" />
             </Link>
           </div>
@@ -112,7 +114,7 @@ export default function Home() {
             <div>
               <p className="eyebrow">HOW WE CAN HELP</p>
               <h2 className="section-title mt-4">
-                Expertise for your next chapter.
+                Our comprehensive corporate &amp; management solutions.
               </h2>
             </div>
             <Link href="/services" className="text-link">
@@ -121,12 +123,11 @@ export default function Home() {
             </Link>
           </div>
           <ServiceGrid services={activeServices.filter((s) => s.featured)} />
-          <p className="mt-6 text-sm leading-5 text-muted-foreground">
-            Proposed service areas for discussion. Availability and scope are
-            confirmed before engagement.
-          </p>
         </Container>
       </section>
+      <PromotionsSection />
+      <ComplianceSection />
+      <HealthSafetySection />
       <section className="section-space">
         <Container className="grid gap-12 lg:grid-cols-2">
           <div className="relative min-h-[420px] overflow-hidden">

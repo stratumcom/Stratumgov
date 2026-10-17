@@ -112,13 +112,14 @@ test("WhatsApp rejects unconfigured numbers and safely encodes the selected serv
   assert.match(url.searchParams.get("text")!, /service: governance-review/);
   assert.match(url.searchParams.get("text")!, /payment arrangements/);
 });
-test("catalog has unique valid slugs and no unverified prices or confirmed claims", () => {
+test("catalog has six confirmed service areas with unique slugs and detailed offerings", () => {
   assert.equal(new Set(services.map((s) => s.slug)).size, services.length);
   for (const s of services) {
     assert.match(s.slug, /^[a-z0-9]+(?:-[a-z0-9]+)*$/);
-    assert.equal(s.confirmed, false);
+    assert.equal(s.confirmed, true);
+    assert.ok(s.offerings?.length);
     assert.ok(s.deliverables.length);
-    assert.ok(s.benefits.length);
+    assert.ok(s.shortDescription);
     assert.ok(s.faqs.length);
   }
 });
@@ -127,8 +128,7 @@ test("site address follows Vercel deployment and production domains", () => {
   const previous = {
     VERCEL_ENV: process.env.VERCEL_ENV,
     VERCEL_URL: process.env.VERCEL_URL,
-    VERCEL_PROJECT_PRODUCTION_URL:
-      process.env.VERCEL_PROJECT_PRODUCTION_URL,
+    VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
   };
   try {
     delete process.env.VERCEL_ENV;

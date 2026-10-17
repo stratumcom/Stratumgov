@@ -10,7 +10,7 @@ export const faqs: FAQ[] = [
     category: "Services",
     question: "Which service is right for my business?",
     answer:
-      "Tell us about your situation through the consultation form. The service areas shown on this website are proposed and subject to confirmation, so an initial discussion will establish the available scope.",
+      "Our six service areas cover formation and market entry, restructuring, management and HR, intellectual property, statutory compliance and product licensing. Explore the service pages or take the free corporate compliance health check, then book a consultation to agree your scope.",
   },
   {
     category: "Getting started",

@@ -24,7 +24,7 @@ export const site = {
   name: "Stratum Governance Ltd.",
   shortName: "stratumgov",
   description:
-    "A considered approach to corporate compliance, governance and regulatory advisory. Start a conversation with Stratum Governance Ltd..",
+    "Company formation, market entry, institutional management, intellectual property and regulatory compliance for Nigerian businesses and international investors.",
   url: siteUrl(),
   logo: "/icons/mark.svg",
   email: process.env.OWNER_EMAIL || "",

@@ -22,6 +22,10 @@ export default function Privacy() {
           body: "Enquiry forms collect your name, email, phone where supplied or required, optional company name, service interest, preferred consultation format, availability, message and privacy consent. Each submission also receives a reference and timestamp. Please avoid sending sensitive personal information or confidential documents through these forms.",
         },
         {
+          heading: "Browser-based assessments",
+          body: "The corporate compliance and workplace safety assessments process answers in your browser without sending those answers to our server. The corporate PDF report is generated on your device and is only shared if you choose to share it. Requesting a consultation opens a separate enquiry form; assessment answers are not automatically attached to that enquiry.",
+        },
+        {
           heading: "Purpose and basis of processing",
           body: "Information is intended to be used to respond to enquiries, assess potential engagements and coordinate consultations. The business owner must confirm the appropriate legal basis for each purpose, including any use of consent, before launch. Submitting an enquiry does not subscribe you to marketing.",
         },

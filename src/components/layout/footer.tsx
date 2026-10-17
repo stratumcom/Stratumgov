@@ -25,6 +25,12 @@ export function Footer() {
             {[
               { label: "About us", href: "/about" },
               { label: "Our services", href: "/services" },
+              { label: "Promotions", href: "/promotions" },
+              {
+                label: "Corporate compliance check",
+                href: "/compliance-health-check",
+              },
+              { label: "Workplace safety check", href: "/health-safety-check" },
               { label: "Insights", href: "/insights" },
               { label: "Newsroom", href: "/newsroom" },
               { label: "FAQs", href: "/faqs" },
@@ -36,7 +42,7 @@ export function Footer() {
           </div>
           <div>
             <h3 className="footer-title">Service areas</h3>
-            {activeServices.slice(0, 4).map((s) => (
+            {activeServices.map((s) => (
               <Link
                 className="footer-link"
                 key={s.slug}

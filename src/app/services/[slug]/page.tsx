@@ -1,7 +1,11 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
-import { activeServices, getService, getServiceCategory } from "@/data/services";
+import {
+  activeServices,
+  getService,
+  getServiceCategory,
+} from "@/data/services";
 import { seo } from "@/lib/seo";
 import { site } from "@/config/site";
 import { Container } from "@/components/shared/container";
@@ -35,7 +39,9 @@ export default async function ServiceDetail({
   return (
     <>
       <PageHeading
-        eyebrow={(getServiceCategory(s.category)?.title || s.category).toUpperCase()}
+        eyebrow={(
+          getServiceCategory(s.category)?.title || s.category
+        ).toUpperCase()}
         title={s.title}
         description={s.shortDescription}
         breadcrumb="Service detail"
@@ -50,35 +56,73 @@ export default async function ServiceDetail({
               </p>
             )}
             <h2 className="text-3xl font-medium tracking-tight">
-              A clearer starting point.
+              How we can help
             </h2>
             <p className="mt-5 leading-8 text-muted-foreground">
               {s.description}
             </p>
-            <h2 className="mt-10 text-2xl font-semibold">The challenge</h2>
-            <p className="mt-4 leading-8 text-muted-foreground">{s.problem}</p>
+            {s.problem && (
+              <>
+                <h2 className="mt-10 text-2xl font-semibold">The challenge</h2>
+                <p className="mt-4 leading-8 text-muted-foreground">
+                  {s.problem}
+                </p>
+              </>
+            )}
             <h2 className="mt-10 text-2xl font-semibold">
-              Proposed scope & deliverables
+              Our services in this area
             </h2>
-            <ul className="mt-5 space-y-4">
-              {s.deliverables.map((d) => (
-                <li className="flex gap-3 text-base leading-6" key={d}>
-                  <Check className="mt-1 size-4 shrink-0 text-highlight" />
-                  {d}
-                </li>
-              ))}
-            </ul>
-            <h2 className="mt-10 text-2xl font-semibold">
-              What this can support
-            </h2>
-            <ul className="mt-5 space-y-4">
-              {s.benefits.map((b) => (
-                <li className="flex gap-3 text-base leading-6" key={b}>
-                  <Check className="mt-1 size-4 shrink-0 text-highlight" />
-                  {b}
-                </li>
-              ))}
-            </ul>
+            {s.offerings ? (
+              <div className="mt-7 space-y-8">
+                {s.offerings.map((offering) => (
+                  <section
+                    key={offering.title}
+                    className="border-t border-border pt-6"
+                  >
+                    <h3 className="text-xl font-semibold">{offering.title}</h3>
+                    <p className="mt-3 leading-8 text-muted-foreground">
+                      {offering.description.split("○")[0].trim()}
+                    </p>
+                    {offering.description.includes("○") && (
+                      <ul className="mt-4 list-disc space-y-3 pl-6 leading-8 text-muted-foreground">
+                        {offering.description
+                          .split("○")
+                          .slice(1)
+                          .map((item) => (
+                            <li key={item}>{item.trim()}</li>
+                          ))}
+                      </ul>
+                    )}
+                  </section>
+                ))}
+              </div>
+            ) : (
+              <>
+                <ul className="mt-5 space-y-4">
+                  {s.deliverables.map((d) => (
+                    <li className="flex gap-3 text-base leading-6" key={d}>
+                      <Check className="mt-1 size-4 shrink-0 text-highlight" />
+                      {d}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+            {s.benefits.length > 0 && (
+              <>
+                <h2 className="mt-10 text-2xl font-semibold">
+                  What this can support
+                </h2>
+                <ul className="mt-5 space-y-4">
+                  {s.benefits.map((b) => (
+                    <li className="flex gap-3 text-base leading-6" key={b}>
+                      <Check className="mt-1 size-4 shrink-0 text-highlight" />
+                      {b}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
           </div>
           <aside className="border border-border bg-surface p-8 lg:sticky lg:top-8">
             <p className="eyebrow">START WITH A CONVERSATION</p>

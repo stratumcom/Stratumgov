@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "test": "node --import tsx tests/core.test.ts && node --import ./tests/register-server-only.mjs --import tsx tests/email-flow.test.ts",
+    "test": "node --import tsx tests/core.test.ts && node --import ./tests/register-server-only.mjs --import tsx tests/email-flow.test.ts && node --import tsx tests/health-safety.test.ts && node --import tsx tests/compliance.test.ts",
+    "qa:compliance": "node scripts/compliance-qa.mjs",
+    "qa:health-safety": "node scripts/health-safety-qa.mjs",
     "qa": "node scripts/browser-qa.mjs"
   },
   "dependencies": {

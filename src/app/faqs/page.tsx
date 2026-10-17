@@ -7,7 +7,7 @@ import { faqs } from "@/data/faqs";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Frequently asked questions",
-  "Find answers about consultation requests, enquiries, proposed service areas, fees and privacy.",
+  "Find answers about consultation requests, enquiries, service areas, fees and privacy.",
   "/faqs",
 );
 export default function FAQs() {

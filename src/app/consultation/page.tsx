@@ -8,6 +8,7 @@ import { ConsultationForm } from "@/components/consultation/consultation-form";
 import { PageHeading } from "@/components/shared/page-heading";
 import { Container } from "@/components/shared/container";
 import { activeServices, getService } from "@/data/services";
+import { promotions } from "@/data/promotions";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Book a consultation",
@@ -17,15 +18,26 @@ export const metadata = seo(
 export default async function Consultation({
   searchParams,
 }: {
-  searchParams: Promise<{ service?: string }>;
+  searchParams: Promise<{ service?: string; offer?: string; purpose?: string }>;
 }) {
-  const { service } = await searchParams;
-  const selected = service && getService(service) ? service : "";
+  const { service, offer, purpose } = await searchParams;
+  const selected = service ? getService(service)?.slug || "" : "";
+  const selectedOffer = promotions.find((item) => item.id === offer);
+  const regularization = purpose === "regularization";
+  const initialMessage = selectedOffer
+    ? `I would like to enquire about this promotional offer: ${selectedOffer.title}. Please confirm eligibility, availability and the full fee breakdown.`
+    : regularization
+      ? "I have completed the Corporate Compliance Health Check and would like to request a free regularization strategy session to discuss my report and next steps."
+      : "";
   return (
     <>
       <PageHeading
         eyebrow="BOOK A CONSULTATION"
-        title="Let’s find your next step."
+        title={
+          regularization
+            ? "Your free regularization strategy session."
+            : "Let’s find your next step."
+        }
         description="Share a little about your business and what you would like to address. We’ll use your enquiry to begin a focused conversation."
       />
       <section className="section-space">
@@ -51,7 +63,9 @@ export default async function Consultation({
                 {
                   icon: CalendarCheck,
                   title: "Confirm the conversation",
-                  text: "The team will contact you to agree availability, format and any applicable fees.",
+                  text: regularization
+                    ? "The team will confirm availability for your free strategy session. Any further paid work is scoped separately."
+                    : "The team will contact you to agree availability, format and any applicable fees.",
                 },
               ].map((v) => (
                 <div className="flex gap-4" key={v.title}>
@@ -72,8 +86,8 @@ export default async function Consultation({
               <Check className="mr-2 inline size-4 text-highlight" />
               No company name? You can enquire as an individual.
               <p className="mt-3">
-                Service areas are proposed and subject to confirmation. A
-                submitted request is not a confirmed booking.
+                Scope and fees are confirmed before engagement. A submitted
+                request is not a confirmed booking.
               </p>
             </div>
           </div>
@@ -85,12 +99,13 @@ export default async function Consultation({
               Fields marked with an asterisk are required.
             </p>
             <ConsultationForm
-              key={selected}
+              key={`${selected}:${selectedOffer?.id || ""}:${regularization}`}
               services={activeServices.map((s) => ({
                 slug: s.slug,
                 title: s.title,
               }))}
               selectedService={selected}
+              initialMessage={initialMessage}
             />
           </div>
         </Container>

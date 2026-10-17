@@ -12,7 +12,6 @@ import {
 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Service } from "@/types/service";
-import { getServiceCategory } from "@/data/services";
 export const serviceIcons = {
   governance: Landmark,
   regulatory: ShieldCheck,
@@ -42,9 +41,7 @@ export function ServiceCard({
             0{index + 1}
           </span>
         </div>
-        <p className="service-category mb-3">
-          {getServiceCategory(service.category)?.title || service.category}
-        </p>
+        <p className="service-category mb-3">{service.category}</p>
         <h3 className="max-w-xs text-xl font-semibold leading-7 tracking-tight">
           <Link
             className="after:absolute after:inset-0"
@@ -57,7 +54,9 @@ export function ServiceCard({
           {service.shortDescription}
         </p>
         <div className="mt-7 flex items-center justify-between border-t border-border pt-5">
-          <span className="text-sm font-semibold">Explore service</span>
+          <span className="text-sm font-semibold">
+            {service.actionLabel || "Explore service"}
+          </span>
           <ArrowUpRight className="size-5 text-highlight" aria-hidden="true" />
         </div>
         {!service.confirmed && (

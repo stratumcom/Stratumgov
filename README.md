@@ -15,7 +15,7 @@ Open http://localhost:3000. The site address is detected automatically in local 
 
 ## Pages
 
-`/`, `/about`, `/services`, `/services/[slug]`, `/consultation`, `/contact`, `/insights`, `/insights/[slug]`, `/newsroom`, `/news/[slug]`, `/faqs`, `/privacy-policy`, and `/terms-of-service` are implemented. Unknown service and article slugs return the shared not-found page. Contact and consultation use separate POST endpoints. Next.js generates the sitemap, robots file and branded social preview image.
+`/`, `/about`, `/services`, `/services/[slug]`, `/consultation`, `/promotions`, `/compliance-health-check`, `/health-safety-check`, `/contact`, `/insights`, `/insights/[slug]`, `/newsroom`, `/news/[slug]`, `/faqs`, `/privacy-policy`, and `/terms-of-service` are implemented. Unknown service and article slugs return the shared not-found page. Contact and consultation use separate POST endpoints. Next.js generates the sitemap, robots file and branded social preview image.
 
 ## Structure
 
@@ -109,7 +109,7 @@ The website neither collects nor confirms payments. Payment instructions and sta
 
 ## Content and branding
 
-Edit `src/config/site.ts` to set company details, verified address, business hours, social links, team profiles and confirmed industries. Unknown details are empty. Do not fill them with invented facts. Values and descriptions for mission, vision and principles are editable drafts in the About page.
+Edit `src/config/site.ts` to set company details, verified address, business hours, social links, team profiles and confirmed industries. Unknown details are empty. Do not fill them with invented facts. The About page uses the supplied company profile, strategic focus areas and philosophy in `src/data/company-profile.ts`.
 
 Edit `src/data/services.ts` for the service catalog. Every service is typed with a unique id/slug, title, descriptions, category, problem, benefits, deliverables, FAQs, icon, featured/active flags, confirmation status, conversion type and optional pricing label. Set `active: false` to hide a service from listing, routes, forms and related links. **Set `confirmed: true` only after the owner confirms that offering.** Proposed services are visibly labeled, noindexed and excluded from the sitemap; confirmed services receive Service structured data. No prices are invented.
 
@@ -150,3 +150,9 @@ No hosting deployment, business account configuration, sender verification or li
 The homepage has a responsive carousel with ten suggested testimonials in `src/data/testimonials.ts`. These are fictional drafts, clearly marked as samples in development and hidden in production until individually approved. Replace each `text` with genuine client feedback, fill in approved attribution, and set that entry’s `approved` flag to `true`. Only approved, non-empty quotes are published.
 
 Visitors can use previous/next buttons, slide indicators, keyboard arrows/Home/End, or swipe horizontally on a phone. The carousel respects reduced-motion preferences and does not autoplay.
+
+## PDF content update and corporate assessment
+
+The six service categories, About profile, promotional offers and Terms of Service use the owner-supplied Website Details PDF. Edit `src/data/company-profile.ts`, `src/data/services.ts`, `src/data/promotions.ts` and `src/data/terms.ts` for the respective content. The promotion update date and disable switch are in `src/data/promotions.ts`. The Terms effective date remains tied to launch until a launch date is supplied.
+
+The corporate assessment at `/compliance-health-check` runs in the browser, adapts to the business profile, and downloads a real PDF report without sending answers to the server. It is separate from `/health-safety-check`. Run `npm run qa:compliance` against a local server (set `QA_ORIGIN` for a different port). See [content update notes](docs/WEBSITE-CONTENT-UPDATE.md) for scoring, promotion dates, source references and verification.

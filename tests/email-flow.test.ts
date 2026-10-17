@@ -124,8 +124,12 @@ test("notification acceptance, complete fields, escaped content, retries and fai
         }),
       });
     assert.equal(
-      (await handleEnquiry(deployedRequest("https://deployed.example"), "contact"))
-        .status,
+      (
+        await handleEnquiry(
+          deployedRequest("https://deployed.example"),
+          "contact",
+        )
+      ).status,
       200,
       "the deployed origin is accepted without a site URL environment variable",
     );
@@ -140,7 +144,7 @@ test("notification acceptance, complete fields, escaped content, retries and fai
       email: "individual@example.com",
       phone: "+2348012345678",
       company: "",
-      service: "regulatory-compliance",
+      service: "statutory-compliance-maintenance",
       format: "video",
       message: "Please discuss the scope of a compliance review.",
       availability: "Weekday afternoons",
@@ -156,8 +160,8 @@ test("notification acceptance, complete fields, escaped content, retries and fai
     for (const expected of [
       "QA Individual",
       "Not supplied",
-      "Regulatory compliance",
-      "regulatory-compliance",
+      "Statutory Compliance &amp; Global Corporate Maintenance",
+      "statutory-compliance-maintenance",
       "video",
       "Weekday afternoons",
       "Please discuss the scope",

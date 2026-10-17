@@ -6,7 +6,7 @@ import { activeServices } from "@/data/services";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Service areas",
-  "Explore proposed governance, compliance, corporate services and development areas. Scope and availability are confirmed after enquiry.",
+  "Explore company formation, restructuring, management and HR, intellectual property, statutory compliance and product licensing services.",
   "/services",
 );
 export default function Services() {
@@ -14,19 +14,11 @@ export default function Services() {
     <>
       <PageHeading
         eyebrow="OUR SERVICE AREAS"
-        title="The right perspective. The right next step."
-        description="Explore the corporate challenges you would like to address. Each engagement begins with a conversation about your needs."
+        title="Our comprehensive corporate & management solutions."
+        description="Six service areas supporting your business from formation and market entry through growth, governance and ongoing compliance. Select a service to explore the full details."
       />
       <section className="section-space">
         <Container>
-          <div className="mb-10 border-l-2 border-highlight bg-surface px-5 py-4 text-base leading-6 text-muted-foreground">
-            <strong className="font-medium text-foreground">
-              A catalog for discussion.
-            </strong>{" "}
-            These are proposed service areas awaiting owner confirmation.
-            Availability, scope, deliverables and fees are agreed before
-            engagement.
-          </div>
           <ServiceCatalog services={activeServices} />
         </Container>
       </section>

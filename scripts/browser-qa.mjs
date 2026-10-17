@@ -185,10 +185,12 @@ async function main() {
     .fill("no-matching-question-9999");
   assert.ok(await page.getByRole("status").isVisible());
   await page.goto(origin + "/services");
-  assert.equal(await page.locator(".catalog-category").count(), 4);
-  await page.getByRole("button", { name: "Development", exact: true }).click();
+  assert.equal(await page.locator(".service-card").count(), 6);
+  await page
+    .getByRole("button", { name: "Management & HR", exact: true })
+    .click();
   await expect(page.getByRole("status")).toHaveText(
-    "1 service area in Development.",
+    "1 service area in Management & HR.",
   );
   assert.equal(await page.locator(".service-card").count(), 1);
 
@@ -213,12 +215,9 @@ async function main() {
   );
   await page.getByRole("button", { name: "Send your message" }).click();
   assert.equal((await contactResponse).status(), 503);
-  assert.ok(
-    await page
-      .getByRole("alert")
-      .filter({ hasText: "awaiting email configuration" })
-      .isVisible(),
-  );
+  await expect(
+    page.getByRole("alert").filter({ hasText: "awaiting email configuration" }),
+  ).toBeVisible();
   assert.equal(await page.getByText("Message received.").count(), 0);
 
   await page.goto(origin + "/consultation?service=regulatory-compliance", {
@@ -226,7 +225,7 @@ async function main() {
   });
   assert.match(
     await page.locator("#consultation-service").innerText(),
-    /Regulatory compliance/,
+    /Statutory Compliance/,
   );
   await page.getByRole("button", { name: "Request a consultation" }).click();
   await expect(page.getByText("Please enter your phone number.")).toBeVisible();
@@ -249,12 +248,9 @@ async function main() {
   );
   await page.getByRole("button", { name: "Request a consultation" }).click();
   assert.equal((await consultationResponse).status(), 503);
-  assert.ok(
-    await page
-      .getByRole("alert")
-      .filter({ hasText: "awaiting email configuration" })
-      .isVisible(),
-  );
+  await expect(
+    page.getByRole("alert").filter({ hasText: "awaiting email configuration" }),
+  ).toBeVisible();
 
   const valid = {
     name: "QA Example",
@@ -318,7 +314,7 @@ async function main() {
       waitUntil: "networkidle",
     });
     await expect(page.locator("#consultation-service")).toContainText(
-      "Corporate governance & advisory",
+      "Institutional Management, Human Resources (HR) Procedures & Work Policies",
     );
     const geometry = await page.evaluate(() => {
       const trigger = document.querySelector("#consultation-service");

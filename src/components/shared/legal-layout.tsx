@@ -4,10 +4,12 @@ export function LegalLayout({
   title,
   description,
   sections,
+  notice,
 }: {
   title: string;
   description: string;
   sections: { heading: string; body: React.ReactNode }[];
+  notice?: React.ReactNode;
 }) {
   return (
     <>
@@ -17,14 +19,17 @@ export function LegalLayout({
         description={description}
       />
       <Container className="max-w-3xl py-16 md:py-24">
-        <div className="mb-10 border-l-2 border-highlight bg-surface p-5 text-base leading-7 text-muted-foreground">
-          <strong className="font-medium text-foreground">
-            Draft for review.
-          </strong>{" "}
-          This document requires approval by the business owner and a qualified
-          professional before the website is launched. It has not received legal
-          approval.<p className="mt-2">Draft date: 9 October 2026.</p>
-        </div>
+        {notice || (
+          <div className="mb-10 border-l-2 border-highlight bg-surface p-5 text-base leading-7 text-muted-foreground">
+            <strong className="font-medium text-foreground">
+              Draft for review.
+            </strong>{" "}
+            This document requires approval by the business owner and a
+            qualified professional before the website is launched. It has not
+            received legal approval.
+            <p className="mt-2">Draft date: 9 October 2026.</p>
+          </div>
+        )}
         {sections.map((s, i) => (
           <section key={s.heading} className="mb-9">
             <h2 className="mb-4 text-xl font-semibold">

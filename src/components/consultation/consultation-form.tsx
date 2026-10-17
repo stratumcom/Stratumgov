@@ -25,9 +25,11 @@ import { FormField } from "@/components/shared/form-field";
 export function ConsultationForm({
   services,
   selectedService = "",
+  initialMessage = "",
 }: {
   services: { slug: string; title: string }[];
   selectedService?: string;
+  initialMessage?: string;
 }) {
   const [status, setStatus] = useState<{
     ok: boolean;
@@ -52,7 +54,7 @@ export function ConsultationForm({
       company: "",
       service: selectedService,
       format: "no-preference",
-      message: "",
+      message: initialMessage,
       availability: "",
       consent: false,
       website: "",
@@ -341,7 +343,11 @@ export function ConsultationForm({
       </Button>
       <p className="text-sm leading-5 text-muted-foreground">
         Submitting a request does not confirm a booking. Please avoid sharing
-        sensitive information.
+        sensitive information. Engagements are subject to our{" "}
+        <Link href="/terms-of-service" className="underline">
+          Terms of Service
+        </Link>
+        .
       </p>
     </form>
   );

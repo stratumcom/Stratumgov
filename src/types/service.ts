@@ -11,6 +11,8 @@ export interface Service {
   title: string;
   shortDescription: string;
   description: string;
+  offerings?: { title: string; description: string }[];
+  actionLabel?: string;
   problem: string;
   category: string;
   benefits: string[];
