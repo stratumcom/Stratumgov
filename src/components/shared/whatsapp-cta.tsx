@@ -23,10 +23,10 @@ export function WhatsAppCTA({ service }: { service?: Service }) {
             <ArrowUpRight className="size-4" />
           </Link>
         </Button>
-        <p className="mt-3 max-w-xs text-sm leading-5 text-muted-foreground">
+        {/* <p className="mt-3 max-w-xs text-sm leading-5 text-muted-foreground">
           WhatsApp contact will be available once the business number is
           confirmed.
-        </p>
+        </p> */}
       </div>
     );
   return (
