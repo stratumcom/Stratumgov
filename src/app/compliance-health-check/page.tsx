@@ -12,7 +12,7 @@ export default function ComplianceHealthCheck() {
     <>
       <PageHeading
         eyebrow="FREE CORPORATE COMPLIANCE HEALTH CHECK"
-        title="How healthy is your corporate compliance?"
+        title="How healthy is your business with Regulators?"
         description="Understand your reported position, identify potential gaps and plan your next steps with a personalized checklist."
       />
       <section className="section-space">

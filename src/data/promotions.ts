@@ -17,7 +17,7 @@ export const promotions = [
     id: "offer-3",
     title: "Buy 4 Companies, Get 1 Free SCUML Certificate",
     description:
-      "The complimentary Special Control Unit Against Money Laundering (SCUML) certificate will be processed for one designated eligible company within the bundle.",
+      "Special Control Unit Against Money Laundering (SCUML) certificate will be processed for one designated eligible company within the bundle.",
     serviceSlug: "company-formation-market-entry",
   },
   {
@@ -47,7 +47,7 @@ export const promotionTerms = [
   {
     title: "Validity Window",
     description:
-      "This promotion is valid for a maximum duration of six (6) months calculated precisely from the date of the last technical or content update made to this website.",
+      "This promotion is valid for a maximum duration of six (6) months calculated precisely from the date of the last technical or content update made to this website which ever comes later.",
   },
   {
     title: "Right of Immediate Withdrawal",

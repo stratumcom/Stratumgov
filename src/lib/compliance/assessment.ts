@@ -152,7 +152,7 @@ export function questionsFor(profile: Profile): Question[] {
       section: "Foreign investment & market entry",
       title: "Expatriate documentation",
       prompt:
-        "Are the applicable work and residence permissions for your foreign personnel up to date?",
+        "Are the applicable work and residence permits for your foreign personnel up to date?",
       help: "Consider the quota, visa and residence documentation relevant to the actual role and immigration status.",
       action:
         "Review your foreign personnel's applicable quota, work and residence documentation.",

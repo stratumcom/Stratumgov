@@ -56,9 +56,9 @@ export default function Promotions() {
             <h2 className="section-title mt-4">
               The details behind each offer.
             </h2>
-            <p className="mt-4 text-sm text-muted-foreground">
+            {/* <p className="mt-4 text-sm text-muted-foreground">
               Website update reference: {websiteLastUpdated}.
-            </p>
+            </p> */}
             <div className="mt-8 space-y-8">
               {promotionTerms.map((term) => (
                 <section key={term.title}>
