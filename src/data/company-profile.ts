@@ -1,7 +1,7 @@
 export const companyIntroduction =
-  "At Stratum Governance Ltd, we bridge the gap between bold corporate vision and rigorous regulatory realities. We serve as the premier operational launchpad for high-growth tech ventures, emerging startups, institutional investors, and foreign investors navigating the dynamic Nigerian market. By combining cutting-edge institutional management consulting with deep regulatory expertise, we engineer compliant corporate vehicles, secure international capital repatriation, and structure high-performance internal environments that scale safely.";
+  "At Stratum CorporateLtd, we bridge the gap between bold corporate vision and rigorous regulatory realities. We serve as the premier operational launchpad for high-growth tech ventures, emerging startups, institutional investors, and foreign investors navigating the dynamic Nigerian market. By combining cutting-edge institutional management consulting with deep regulatory expertise, we engineer compliant corporate vehicles, secure international capital repatriation, and structure high-performance internal environments that scale safely.";
 export const companyProfile = [
-  "Stratum Governance Ltd is an elite corporate governance, institutional management, and regulatory compliance advisory firm. We specialize in structuring, scaling, and insulating high-value commercial enterprises operating within the sub-Saharan economic landscape.",
+  "Stratum CorporateLtd is an elite corporate governance, institutional management, and regulatory compliance advisory firm. We specialize in structuring, scaling, and insulating high-value commercial enterprises operating within the sub-Saharan economic landscape.",
   "We serve as a strategic bridge for foreign investment onboarding, technological innovation, and institutional corporate administration. We do not just manage compliance; we engineer the administrative and legal foundations that allow complex businesses to scale with absolute stability.",
 ];
 export const strategicFocusAreas = [
@@ -19,7 +19,7 @@ export const strategicFocusAreas = [
   {
     title: "Institutional Management & Human Capital Architecture",
     description:
-      "A company’s value is deeply anchored in its internal governance and organizational structure. We step inside growing organizations to design high-performance corporate organograms, map out executive accountability lines, and establish robust administrative controls. Recognizing the intricate landscape of Nigerian labor dynamics, we author custom workplace policies, design recruitment frameworks, and draft comprehensive, legally protective Employee Handbooks that shield corporations from operational liabilities and workforce friction.",
+      "A company’s value is deeply anchored in its internal Corporateand organizational structure. We step inside growing organizations to design high-performance corporate organograms, map out executive accountability lines, and establish robust administrative controls. Recognizing the intricate landscape of Nigerian labor dynamics, we author custom workplace policies, design recruitment frameworks, and draft comprehensive, legally protective Employee Handbooks that shield corporations from operational liabilities and workforce friction.",
   },
   {
     title: "Unlocking Complex Capital through Project Financing Advisory",
@@ -28,6 +28,6 @@ export const strategicFocusAreas = [
   },
 ];
 export const companyPhilosophy = [
-  "At Stratum Governance Ltd, we believe that good governance is the ultimate catalyst for corporate longevity and investor confidence. Whether we are handling high-stakes post-incorporation modifications with the Corporate Affairs Commission (CAC), managing anti-money laundering certifications through the Special Control Unit Against Money Laundering (SCUML), or setting up workspace social safety nets like PenCom, NSITF, and ITF, we deliver unmatched administrative precision.",
+  "At Stratum CorporateLtd, we believe that good Corporateis the ultimate catalyst for corporate longevity and investor confidence. Whether we are handling high-stakes post-incorporation modifications with the Corporate Affairs Commission (CAC), managing anti-money laundering certifications through the Special Control Unit Against Money Laundering (SCUML), or setting up workspace social safety nets like PenCom, NSITF, and ITF, we deliver unmatched administrative precision.",
   "We protect your equity, insulate your brand, and secure your operations so you can focus exclusively on global growth.",
 ];

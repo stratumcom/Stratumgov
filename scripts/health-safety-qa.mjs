@@ -34,7 +34,7 @@ try {
     await expect(section).toBeVisible();
     assert.equal(await section.locator("li").count(), 3);
     await expect(section.getByText(/Approximately 3–5 minutes/)).toBeVisible();
-    await expect(page.locator(".hero-copy h1")).toHaveText("Stratum Governance Ltd.");
+    await expect(page.locator(".hero-copy h1")).toHaveText("Stratum Corporate Ltd.");
     await expect(page.locator(".service-card").first()).toBeVisible();
     await expect(page.getByRole("heading", { name: "A clear path forward." })).toBeVisible();
     await fits();

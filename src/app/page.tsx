@@ -16,6 +16,7 @@ import { ComplianceSection } from "@/components/home/compliance-section";
 import { PromotionsSection } from "@/components/home/promotions-section";
 import { companyIntroduction } from "@/data/company-profile";
 import { HealthSafetySection } from "@/components/home/health-safety-section";
+import { DisclosuresSection } from "@/components/home/disclosures-section";
 import { ServiceGrid } from "@/components/services/service-grid";
 import { FAQAccordion } from "@/components/faqs/faq-accordion";
 import { InsightCard } from "@/components/insights/insight-card";
@@ -39,7 +40,7 @@ export default function Home() {
               A STRONGER FOUNDATION & STRUCTURE FOR YOUR BUSINESS
             </div>
             <h1>
-              <span>Stratum</span> <span>Governance Ltd.</span>
+              <span>Stratum</span> <span>Corporate Ltd. <sub className="text-4xl">RC - 10003553</sub></span>
             </h1>
             <p className="hero-description">
               Launch, structure and grow your business in Nigeria with corporate
@@ -66,7 +67,7 @@ export default function Home() {
           </div>
           <div className="hero-image">
             <Image
-              src="/images/architecture.jpg"
+              src="/images/heroimage.jpg"
               alt=""
               fill
               priority
@@ -87,7 +88,7 @@ export default function Home() {
       <section className="section-space">
         <Container className="grid gap-10 md:grid-cols-[.8fr_1.2fr]">
           <div>
-            <p className="eyebrow">WELCOME TO STRATUMGOV</p>
+            <p className="eyebrow">WELCOME TO STRATUMCORP</p>
             <h2 className="section-title mt-5">
               A clearer perspective.
               <br />A stronger business.
@@ -151,7 +152,7 @@ export default function Home() {
             </div>
           </div>
           <div className="py-2">
-            <p className="eyebrow">THE STRATUMGOV PERSPECTIVE</p>
+            <p className="eyebrow">THE STRATUMCORP PERSPECTIVE</p>
             <h2 className="section-title mt-5">
               Considered advice.
               <br />
@@ -261,6 +262,7 @@ export default function Home() {
         </Container>
       </section>
       <CTA />
+      <DisclosuresSection />
     </>
   );
 }

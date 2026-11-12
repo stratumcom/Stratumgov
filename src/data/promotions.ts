@@ -52,7 +52,7 @@ export const promotionTerms = [
   {
     title: "Right of Immediate Withdrawal",
     description:
-      "Stratum Governance Ltd explicitly reserves the right to suspend, alter, or completely withdraw any of these promotional offers at any time at its sole discretion. This withdrawal takes effect immediately upon management decision and remains legally binding on all new applications, even if the website text or promotional banners have not yet been updated, edited, or removed from the live portal.",
+      "Stratum CorporateLtd explicitly reserves the right to suspend, alter, or completely withdraw any of these promotional offers at any time at its sole discretion. This withdrawal takes effect immediately upon management decision and remains legally binding on all new applications, even if the website text or promotional banners have not yet been updated, edited, or removed from the live portal.",
   },
   {
     title: "Exclusion of Statutory Fees",

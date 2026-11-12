@@ -139,7 +139,7 @@ export const services: Service[] = [
           "Processing post-incorporation share capital increases, capital reductions, structural share allotments, and designing multi-class share options for venture capital onboarding on the Corporate Affairs Commission (CAC) portal.",
       },
       {
-        title: "Board & Secretarial Governance Updates",
+        title: "Board & Secretarial CorporateUpdates",
         description:
           "Structuring and filing official updates for the appointment, retirement, or legal removal of corporate Directors, Board Chairpersons, and accredited Company Secretaries.",
       },
@@ -158,7 +158,7 @@ export const services: Service[] = [
     deliverables: [
       "Corporate Rebranding & Name Changes",
       "Equity & Share Capital Adjustments",
-      "Board & Secretarial Governance Updates",
+      "Board & Secretarial CorporateUpdates",
       "Constitutional & MEMART Alterations",
       "Corporate Conversions",
     ],
@@ -198,7 +198,7 @@ export const services: Service[] = [
       {
         title: "Corporate Management & Administrative Structuring",
         description:
-          "Designing optimal corporate organograms, defining lines of reporting, establishing administrative control structures, and engineering corporate governance workflows for functional accountability.",
+          "Designing optimal corporate organograms, defining lines of reporting, establishing administrative control structures, and engineering corporate Corporateworkflows for functional accountability.",
       },
       {
         title: "Workplace Policy Formulation",

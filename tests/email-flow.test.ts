@@ -1,5 +1,6 @@
 import { test } from "node:test";
 import assert from "node:assert/strict";
+import { brand } from "../src/config/brand";
 
 test("notification acceptance, complete fields, escaped content, retries and failure states", async () => {
   const originalFetch = globalThis.fetch;
@@ -7,7 +8,7 @@ test("notification acceptance, complete fields, escaped content, retries and fai
   Object.assign(process.env, {
     NODE_ENV: "development",
     RESEND_API_KEY: "re_mock_test_only",
-    RESEND_FROM_EMAIL: "stratum Governance <sender@example.com>",
+    RESEND_FROM_EMAIL: "stratum Corporate<sender@example.com>",
     RESEND_SENDER_VERIFIED: "true",
     OWNER_EMAIL: "business@example.com",
     UPSTASH_REDIS_REST_URL: "",
@@ -70,7 +71,7 @@ test("notification acceptance, complete fields, escaped content, retries and fai
     const first = await handleEnquiry(request(contact), "contact");
     assert.equal(first.status, 200);
     assert.equal(calls[0].body.to, "business@example.com");
-    assert.equal(calls[0].body.from, "stratum Governance <sender@example.com>");
+    assert.equal(calls[0].body.from, "stratum Corporate<sender@example.com>");
     assert.equal(calls[0].body.reply_to, "visitor@example.com");
     const html = String(calls[0].body.html);
     for (const expected of [
@@ -87,7 +88,7 @@ test("notification acceptance, complete fields, escaped content, retries and fai
     assert.ok(html.includes("&lt;script&gt;"));
     assert.ok(!html.includes('<script>alert("unsafe")</script>'));
     assert.ok(html.includes("NEW WEBSITE ENQUIRY"));
-    assert.ok(html.includes("background:#101F8F"));
+    assert.ok(html.includes(`background:${brand.blue}`));
     assert.ok(!("react" in calls[0].body));
     assert.equal(
       calls[0].headers.get("idempotency-key"),

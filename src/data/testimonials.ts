@@ -11,7 +11,7 @@ import type { Testimonial } from "@/types/testimonial";
 export const testimonials: readonly Testimonial[] = [
   {
     id: "testimonial-01",
-    text: "Stratum Governance helped us turn a complicated set of corporate responsibilities into a clear, manageable plan. We appreciated knowing what needed attention and what to do next.",
+    text: "Stratum Corporatehelped us turn a complicated set of corporate responsibilities into a clear, manageable plan. We appreciated knowing what needed attention and what to do next.",
     approved: false,
     clientName: "",
     clientRole: "",

@@ -1,6 +1,6 @@
 // Content supplied in Website Details.pdf. Dates are managed separately.
 export const termsIntroduction = [
-  "Welcome to Stratum Governance Ltd (Also Stratum Ltd in this T &C). These Terms of Service govern your access to and use of our website, digital platforms, and the premier corporate governance, post-incorporation, and regulatory compliance consulting services provided by us to you.",
+  "to Stratum CorporateLtd (Also Stratum Ltd in this T &C). These Terms of Service govern your access to and use of our website, digital platforms, and the premier corporate governance, post-incorporation, and regulatory compliance consulting services provided by us to you.",
   "By engaging our services, making a payment, or utilizing our platform, you acknowledge that you have read, understood, and agreed to be bound by these Terms. If you are entering into these Terms on behalf of a corporate entity, you warrant that you have the legal authority to bind that entity.",
 ];
 export const termsSections = [
@@ -13,14 +13,14 @@ export const termsSections = [
   {
     heading: "Regulatory Notice & Nature of Relationship",
     paragraphs: [
-      "Stratum Ltd is a dedicated corporate governance and regulatory compliance consulting firm. All statutory registrations, post-incorporation filings, and agency submissions are executed securely by our elite, in-house accredited professionals and retained professional firms. We provide strategic administrative corporate secretarial and compliance management services to ensure businesses remain permanently audit-ready; we do not provide independent legal opinions, courtroom legal representation, or litigation advocacy. Engaging our services does not establish an attorney-client relationship.",
+      "Stratum Ltd is a dedicated corporate Corporateand regulatory compliance consulting firm. All statutory registrations, post-incorporation filings, and agency submissions are executed securely by our elite, in-house accredited professionals and retained professional firms. We provide strategic administrative corporate secretarial and compliance management services to ensure businesses remain permanently audit-ready; we do not provide independent legal opinions, courtroom legal representation, or litigation advocacy. Engaging our services does not establish an attorney-client relationship.",
     ],
   },
   {
     heading: "Execution of Services and Third-Party Professionals",
     paragraphs: [
       "To deliver seamless, exceptional, and fully compliant administrative results, Stratum Ltd utilizes a robust operational network consisting of our certified, in-house accredited directors as well as retained, independent legal practitioners, chartered accountants, and certified third-party professional firms.",
-      "You hereby acknowledge and agree that where specific statutory filings, corporate registries, or regulatory portals mandate processing exclusively through an accredited legal practitioner or independent professional firm, Stratum Governance Ltd will securely route such administrative filings through our retained independent partners.",
+      "You hereby acknowledge and agree that where specific statutory filings, corporate registries, or regulatory portals mandate processing exclusively through an accredited legal practitioner or independent professional firm, Stratum CorporateLtd will securely route such administrative filings through our retained independent partners.",
       "All such engagements are executed internally behind the scenes to fulfill your administrative request flawlessly. No direct client-attorney relationship is created between you and our retained external partners.",
     ],
   },

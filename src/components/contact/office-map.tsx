@@ -19,9 +19,11 @@ export function OfficeMap() {
           <div className="office-map-frame">
             <iframe
               title={`Map showing ${site.name} at ${address}`}
-              src={`https://www.google.com/maps?q=${query}&z=15&output=embed`}
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.4398418975015!2d7.483528676029717!3d9.023579489071441!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x104e0c7f383b69a9%3A0xb140a20917ded3d3!2s1611%20Oka%20-%20Akoko%20St%2C%20off%20Lagos%20Crescent%2C%20Garki%2C%20Abuja%20900104%2C%20Federal%20Capital%20Territory!5e0!3m2!1sen!2sng!4v1794516329461!5m2!1sen!2sng"
+              width={600}
+              height={450}
               loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
+              referrerPolicy="strict-origin-when-cross-origin"
               allowFullScreen
               className="h-full w-full border-0"
             />

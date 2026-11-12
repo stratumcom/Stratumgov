@@ -4,14 +4,14 @@ import { websiteLastUpdated } from "@/data/promotions";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Terms of service",
-  "Terms governing Stratum Governance Ltd corporate governance, company formation and regulatory compliance services.",
+  "Terms governing Stratum CorporateLtd corporate governance, company formation and regulatory compliance services.",
   "/terms-of-service",
 );
 export default function Terms() {
   return (
     <LegalLayout
       title="Terms of service."
-      description="Terms governing access to our website and engagement of our corporate governance and regulatory compliance services."
+      description="Terms governing access to our website and engagement of our corporate Corporateand regulatory compliance services."
       notice={
         <div className="mb-10 space-y-4 border-l-2 border-highlight bg-surface p-5 text-base leading-7 text-muted-foreground">
           <p>

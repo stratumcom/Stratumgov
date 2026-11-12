@@ -8,7 +8,7 @@ import { site } from "@/config/site";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
   "Contact us",
-  "Start a conversation with Stratum Governance Ltd. about your corporate needs.",
+  "Start a conversation with Stratum Corporate Ltd. about your corporate needs.",
   "/contact",
 );
 export default async function Contact({

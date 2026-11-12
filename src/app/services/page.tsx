@@ -15,7 +15,7 @@ export default function Services() {
       <PageHeading
         eyebrow="OUR SERVICE AREAS"
         title="Our comprehensive corporate & management solutions."
-        description="Six service areas supporting your business from formation and market entry through growth, governance and ongoing compliance. Select a service to explore the full details."
+        description="Six service areas supporting your business from formation and market entry through growth, Corporateand ongoing compliance. Select a service to explore the full details."
       />
       <section className="section-space">
         <Container>

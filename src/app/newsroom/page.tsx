@@ -21,7 +21,7 @@ export default function Newsroom() {
       <PageHeading
         eyebrow="NEWSROOM"
         title="Keep a clear view of what’s changing."
-        description="Selected stories and official updates from the worlds of corporate compliance, governance and data protection."
+        description="Selected stories and official updates from the worlds of corporate compliance, Corporateand data protection."
       />
       <section className="section-space">
         <Container>

@@ -28,7 +28,7 @@ export async function generateMetadata({
           description: a.excerpt,
           publishedTime: a.date,
           authors: [a.author],
-          images: [{ url: a.image }],
+          images: [{ url: a.image, alt: a.imageAlt }],
           url: `/insights/${a.slug}`,
         },
       }
@@ -80,7 +80,7 @@ export default async function Article({
             height={600}
             sizes="(max-width:768px) 100vw, 1100px"
             priority
-            alt="Illustrative corporate workspace and architecture"
+            alt={a.imageAlt}
             className="mt-10 aspect-[2] w-full object-cover"
           />
         </Container>

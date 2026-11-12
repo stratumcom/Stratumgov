@@ -15,7 +15,7 @@ export default function Privacy() {
       sections={[
         {
           heading: "Who this notice concerns",
-          body: "This draft notice concerns the website of Stratum Governance Ltd.. The business owner must confirm the legal entity details, contact information, applicable obligations and final data handling practices before publication.",
+          body: "This draft notice concerns the website of Stratum Corporate Ltd.. The business owner must confirm the legal entity details, contact information, applicable obligations and final data handling practices before publication.",
         },
         {
           heading: "Information you provide",

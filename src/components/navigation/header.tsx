@@ -1,5 +1,6 @@
 "use client";
 import Link from "next/link";
+import Image from "next/image";
 import type { ReactNode } from "react";
 import { usePathname } from "next/navigation";
 import { ArrowUpRight, Menu } from "lucide-react";
@@ -16,7 +17,7 @@ import {
 import { Container } from "@/components/shared/container";
 export function Brand({
   light = false,
-  logo = "/icons/mark.svg",
+  logo = "/images/logo.png",
 }: {
   light?: boolean;
   logo?: string;
@@ -24,17 +25,23 @@ export function Brand({
   return (
     <Link
       href="/"
-      aria-label="stratumgov home"
+      aria-label="Stratum Corporate Ltd. home"
       className={`brand ${light ? "brand-light" : ""}`}
     >
-      <span
-        className="brand-mark"
-        aria-hidden="true"
-        style={{ maskImage: `url(${logo})` }}
-      />
+      <span className="brand-mark" aria-hidden="true">
+        <Image
+          src={logo}
+          alt=""
+          width={1774}
+          height={887}
+          sizes="(max-width: 359px) 56px, 68px"
+          className="brand-logo"
+          priority={!light}
+        />
+      </span>
       <span>
-        <span className="brand-name">stratumgov</span>
-        <span className="brand-subtitle">Corporate compliance</span>
+        <span className="brand-name">StratumCorp</span>
+        <span className="brand-subtitle">Corporate Ltd.</span>
       </span>
     </Link>
   );
@@ -54,7 +61,7 @@ export function Header({
   return (
     <header className="site-header">
       {informationBar}
-      <Container className="header-main flex h-24 items-center justify-between gap-6">
+      <Container className="header-main flex h-24 items-center justify-between gap-4 sm:gap-6">
         <Brand logo={logo} />
         <nav
           aria-label="Main navigation"
@@ -88,7 +95,7 @@ export function Header({
             </Button>
           </SheetTrigger>
           <SheetContent className="w-[min(90vw,380px)]">
-            <SheetTitle className="px-6 pt-8">Explore stratumgov</SheetTitle>
+            <SheetTitle className="px-6 pt-8">Explore StratumCorp</SheetTitle>
             <SheetDescription className="px-6 text-base">
               Find a service area or start a conversation.
             </SheetDescription>

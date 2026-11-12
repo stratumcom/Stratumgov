@@ -13,7 +13,7 @@ export function CTA() {
             <br className="hidden md:block" /> corporate footprint in Nigeria?
           </h2>
           <p className="mt-4 max-w-lg text-base text-white/80">
-            Let Stratum Governance Ltd streamline your setup, manage your
+            Let Stratum CorporateLtd streamline your setup, manage your
             filings and support your compliance while you focus on growth.
           </p>
         </div>

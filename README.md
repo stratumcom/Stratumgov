@@ -1,4 +1,4 @@
-# Stratum Governance Ltd.
+# Stratum Corporate Ltd.
 
 A complete responsive corporate website built with Next.js App Router, strict TypeScript, Tailwind CSS, CLI-generated shadcn/ui, Lucide, React Hook Form, Zod, React Email and Resend. No content database, authentication system or payment gateway is included. Redis is used only for production rate limiting and short-lived retry metadata.
 
@@ -119,7 +119,7 @@ Edit `src/data/newsroom.ts` to add or update curated news. The newsroom has six 
 
 Edit `src/data/faqs.ts` to update FAQ content. Replace legal drafts with reviewed documents and update the date and indexing behavior in the legal page metadata. Draft legal pages do not claim legal approval.
 
-Brand tokens live in `src/app/globals.css`; update `src/config/site.ts` brand references alongside them. Replace `public/icons/mark.svg` and the `Brand` component for approved branding. The current wordmark/mark is an original proposed identity. Swap local photographs in `public/images/` and retain accurate alt text. Local fonts are declared in the root layout. Asset source and license notes live alongside the assets.
+Brand colors live in `src/config/brand.ts` and flow through `src/app/globals.css`, the social preview and email templates. The transparent `public/images/logo.png` is configured in `src/config/site.ts`; the header shows its stacked emblem beside the existing wordmark without a background tile. The footer separately uses the full `public/images/stratumcorp_logo2.jpeg` logo, framed within its own responsive, left-aligned container. Navy (#053662), slate (#495A67) and cool neutral accents follow the supplied logo, with a matching vector favicon in `public/icons/mark.svg`. Existing `gold` token names are retained for compatibility and now resolve to slate accents. The existing layouts, typography and photography are retained. Swap local photographs in `public/images/` and retain accurate alt text. Local fonts are declared in the root layout. Asset source and license notes live alongside the assets.
 
 ## Checks and local browser verification
 

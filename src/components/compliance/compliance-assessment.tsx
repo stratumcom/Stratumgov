@@ -281,7 +281,7 @@ export function ComplianceAssessment() {
           group("Items not yet due", result.excluded, CircleHelp, "")}
         <section className="mt-10 border border-border bg-surface p-5 sm:p-7">
           <h3 className="text-2xl font-semibold">
-            How Stratum Governance Ltd can help
+            How Stratum CorporateLtd can help
           </h3>
           <p className="mt-4 leading-7 text-muted-foreground">
             Turn your findings into a practical regularization plan. Download

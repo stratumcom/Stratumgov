@@ -41,19 +41,19 @@ function emailShell({
       <tr><td align="center" style="padding:32px 16px;">
         <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="600" style="width:100%;max-width:600px;background:#ffffff;border:1px solid ${brand.border};">
           <tr><td style="background:${brand.blue};padding:30px 36px 28px;">
-            <div style="font-size:21px;font-weight:700;letter-spacing:0.08em;color:#ffffff;line-height:1.2;">STRATUM<span style="color:#b9bffd;">.</span></div>
-            <div style="margin-top:8px;font-size:10px;font-weight:700;letter-spacing:0.22em;color:#dce0ff;"> GOVERNANCE LTD.</div>
+            <div style="font-size:21px;font-weight:700;letter-spacing:0.08em;color:#ffffff;line-height:1.2;">STRATUM<span style="color:${brand.gold};">.</span></div>
+            <div style="margin-top:8px;font-size:10px;font-weight:700;letter-spacing:0.22em;color:${brand.goldLight};"> CorporateLTD.</div>
           </td></tr>
-          <tr><td style="height:5px;background:#b9bffd;font-size:1px;line-height:1px;">&nbsp;</td></tr>
+          <tr><td style="height:5px;background:${brand.gold};font-size:1px;line-height:1px;">&nbsp;</td></tr>
           <tr><td style="padding:36px 36px 30px;">
-            <div style="display:inline-block;padding:7px 11px;background:#eeeefe;color:${brand.blue};font-size:10px;font-weight:700;letter-spacing:0.16em;">${escapeHtml(label)}</div>
+            <div style="display:inline-block;padding:7px 11px;background:${brand.goldSurface};color:${brand.blue};font-size:10px;font-weight:700;letter-spacing:0.16em;">${escapeHtml(label)}</div>
             <h1 style="margin:20px 0 12px;color:${brand.blue};font-family:Georgia,'Times New Roman',serif;font-size:31px;line-height:1.2;font-weight:400;">${escapeHtml(title)}</h1>
             <p style="margin:0 0 27px;color:${brand.muted};font-size:15px;line-height:1.75;">${escapeHtml(intro)}</p>
             ${body}
           </td></tr>
           <tr><td style="padding:23px 36px 28px;border-top:1px solid ${brand.border};background:${brand.white};">
             <p style="margin:0;color:${brand.muted};font-size:12px;line-height:1.7;">${escapeHtml(footnote)}</p>
-            <p style="margin:11px 0 0;color:${brand.blue};font-size:11px;font-weight:700;letter-spacing:0.1em;">Stratum Governance Ltd.</p>
+            <p style="margin:11px 0 0;color:${brand.blue};font-size:11px;font-weight:700;letter-spacing:0.1em;">Stratum Corporate Ltd.</p>
           </td></tr>
         </table>
       </td></tr>
@@ -92,7 +92,7 @@ export function consultationConfirmationHtml(name: string, reference: string) {
     label: "REQUEST RECEIVED",
     title: "Thank you for getting in touch.",
     intro: `Hello ${name}, we have received your consultation request. Our team will review it and contact you using the details you provided.`,
-    body: `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#eeeefe;border-left:4px solid ${brand.blue};">
+    body: `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:${brand.goldSurface};border-left:4px solid ${brand.blue};">
       <tr><td style="padding:20px 22px;">
         <div style="color:${brand.blue};font-size:10px;font-weight:700;letter-spacing:0.14em;">YOUR ENQUIRY REFERENCE</div>
         <div style="margin-top:8px;color:${brand.ink};font-size:16px;font-weight:700;line-height:1.5;overflow-wrap:anywhere;">${display(reference)}</div>

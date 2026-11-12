@@ -7,7 +7,7 @@ The existing Next.js site now uses Imperial Blue (#101F8F) and White Convolvulus
 ## Presentation and structure
 
 - Imperial Blue navigation and hero, soft white content sections, neutral surfaces and a complementary blue footer.
-- Exact hero text: **Stratum Governance Ltd.**. Navbar and footer brand: **stratumgov**.
+- Exact hero text: **Stratum Corporate Ltd.**. Navbar and footer brand: **stratumgov**.
 - Existing architectural imagery receives a restrained blue treatment. The hero has clear consultation and services links.
 - Homepage order: hero, introduction, featured services, company perspective, approach, verified industries when available, insights, FAQs and consultation CTA.
 - Empty industry/client and team sections stay hidden until verified data is available. Existing draft statements and proposed-service notices remain identified as such.

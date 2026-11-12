@@ -39,7 +39,7 @@ export function reportLines(
   generated = new Date(),
 ): string[] {
   const lines = [
-    "STRATUM GOVERNANCE LTD",
+    "STRATUM CORPORATE LTD",
     "Corporate Compliance Health Report",
     `Prepared: ${generated.toLocaleDateString("en-GB", { timeZone: "Africa/Lagos" })}`,
     "",
@@ -79,7 +79,7 @@ export function reportLines(
   lines.push(
     "",
     "NEXT STEPS",
-    "Request a free regularization strategy session through the consultation page on the Stratum Governance Ltd website. Your booking is confirmed separately by the team.",
+    "Request a free regularization strategy session through the consultation page on the Stratum CorporateLtd website. Your booking is confirmed separately by the team.",
     "",
     "ASSESSMENT SCOPE",
     assessmentNotice,
@@ -118,7 +118,7 @@ export function createReportPdf(
     add(
       `<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R >> >> /Contents ${5 + i * 2} 0 R >>`,
     );
-    const stream = `BT /F1 10 Tf 15 TL 48 790 Td\n${page.map((line) => `(${escape(line)}) Tj T*`).join("\n")}\nET\nBT /F1 9 Tf 48 40 Td (Stratum Governance Ltd - Page ${i + 1} of ${pages.length}) Tj ET\n`;
+    const stream = `BT /F1 10 Tf 15 TL 48 790 Td\n${page.map((line) => `(${escape(line)}) Tj T*`).join("\n")}\nET\nBT /F1 9 Tf 48 40 Td (Stratum CorporateLtd - Page ${i + 1} of ${pages.length}) Tj ET\n`;
     add(`<< /Length ${stream.length} >>\nstream\n${stream}endstream`);
   });
   let pdf = "%PDF-1.4\n";

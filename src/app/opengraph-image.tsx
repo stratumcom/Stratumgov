@@ -1,6 +1,6 @@
 import { brand } from "@/config/brand";
 import { ImageResponse } from "next/og";
-export const alt = "stratumgov — Stratum Governance Ltd.";
+export const alt = "StratumCorp — Stratum Corporate Ltd.";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 export default function OGImage() {
@@ -22,10 +22,10 @@ export default function OGImage() {
           display: "flex",
           fontSize: 24,
           letterSpacing: 4,
-          color: brand.white,
+          color: brand.goldLight,
         }}
       >
-        stratumgov
+        StratumCorp
       </div>
       <div
         style={{
@@ -35,11 +35,11 @@ export default function OGImage() {
           lineHeight: 1.15,
         }}
       >
-        <span>Stratum Governance</span>
+        <span>Stratum Corporate</span>
         <span style={{ color: brand.white }}>Ltd.</span>
       </div>
       <div style={{ display: "flex", fontSize: 20, color: brand.white }}>
-        GOVERNANCE · COMPLIANCE · ADVISORY
+        CORPORATE · COMPLIANCE · ADVISORY
       </div>
     </div>,
     size,

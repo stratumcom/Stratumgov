@@ -12,11 +12,7 @@ export function InsightCard({ article }: { article: Insight }) {
       >
         <Image
           src={article.image}
-          alt={
-            article.category === "Governance"
-              ? "Professionals working together in a bright office"
-              : "Contemporary corporate architecture and workspace"
-          }
+          alt={article.imageAlt}
           width={700}
           height={450}
           className="corporate-image aspect-[1.55] w-full object-cover transition-transform duration-500 group-hover:scale-105"

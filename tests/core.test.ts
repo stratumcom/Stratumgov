@@ -99,7 +99,7 @@ test("WhatsApp rejects unconfigured numbers and safely encodes the selected serv
   ])
     assert.equal(whatsappUrl(n), null);
   const service = {
-    title: "Governance & advisory / review",
+    title: "Corporate& advisory / review",
     slug: "governance-review",
   };
   const url = new URL(whatsappUrl("2348012345678", service, true)!);
@@ -107,7 +107,7 @@ test("WhatsApp rejects unconfigured numbers and safely encodes the selected serv
   assert.equal(url.pathname, "/2348012345678");
   assert.match(
     url.searchParams.get("text")!,
-    /Governance & advisory \/ review/,
+    /Corporate& advisory \/ review/,
   );
   assert.match(url.searchParams.get("text")!, /service: governance-review/);
   assert.match(url.searchParams.get("text")!, /payment arrangements/);

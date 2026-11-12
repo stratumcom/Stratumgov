@@ -17,7 +17,7 @@ export default function About() {
   return (
     <>
       <PageHeading
-        eyebrow="ABOUT STRATUM GOVERNANCE LTD"
+        eyebrow="ABOUT STRATUM CorporateLTD"
         title="Corporate vision. Strong foundations."
         description="We bridge the gap between bold corporate vision and rigorous regulatory realities."
       />
@@ -25,7 +25,7 @@ export default function About() {
         <Container className="grid items-center gap-12 md:grid-cols-2">
           <div>
             <p className="eyebrow">OUR COMPANY</p>
-            <h2 className="section-title mt-5">About Stratum Governance Ltd</h2>
+            <h2 className="section-title mt-5">About Stratum CorporateLtd</h2>
             {companyProfile.map((paragraph) => (
               <p
                 key={paragraph}
@@ -67,7 +67,7 @@ export default function About() {
         <Container className="max-w-4xl">
           <p className="eyebrow">OUR PHILOSOPHY</p>
           <h2 className="section-title mt-5">
-            Good governance supports lasting businesses.
+            Good Corporatesupports lasting businesses.
           </h2>
           {companyPhilosophy.map((paragraph) => (
             <p key={paragraph} className="mt-6 leading-8 text-muted-foreground">

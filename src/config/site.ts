@@ -21,17 +21,19 @@ const socialProfiles = [
 }));
 
 export const site = {
-  name: "Stratum Governance Ltd.",
-  shortName: "stratumgov",
+  name: "Stratum Corporate Ltd.",
+  shortName: "StratumCorp",
   description:
     "Company formation, market entry, institutional management, intellectual property and regulatory compliance for Nigerian businesses and international investors.",
   url: siteUrl(),
-  logo: "/icons/mark.svg",
+  logo: "/images/logo.png",
   email: process.env.OWNER_EMAIL || "",
   phone: process.env.OWNER_PHONE_NUMBER || "",
   whatsapp: process.env.OWNER_WHATSAPP_NUMBER || "",
   location: process.env.OWNER_LOCATION || "",
-  address: process.env.OWNER_OFFICE_ADDRESS || "",
+  address:
+    process.env.OWNER_OFFICE_ADDRESS ||
+    "Plot 1611/1612 Oka-Akoko Street, Garki, Abuja",
   businessHours: process.env.OWNER_BUSINESS_HOURS || "",
   socialProfiles,
   socialLinks: socialProfiles.filter(({ url }) => Boolean(url)),

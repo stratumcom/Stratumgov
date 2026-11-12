@@ -8,6 +8,7 @@ export interface Insight {
   date: string;
   sample: boolean;
   image: string;
+  imageAlt: string;
   readingTime: string;
   sections: { heading: string; paragraphs: string[] }[];
 }
@@ -22,7 +23,9 @@ export const insights: Insight[] = [
     author: "Sample editorial",
     date: "2026-10-09",
     sample: true,
-    image: "/images/architecture.jpg",
+    image: "/images/law1.png",
+    imageAlt:
+      "Man seated at a desk with a laptop, law books, scales and a gavel",
     readingTime: "4 min read",
     sections: [
       {
@@ -48,7 +51,7 @@ export const insights: Insight[] = [
   },
   {
     slug: "governance-beyond-the-boardroom",
-    title: "Good governance starts beyond the boardroom",
+    title: "Good Corporatestarts beyond the boardroom",
     excerpt:
       "Why clear roles and everyday decisions matter to a more accountable organization.",
     category: "Governance",
@@ -56,13 +59,15 @@ export const insights: Insight[] = [
     author: "Sample editorial",
     date: "2026-10-09",
     sample: true,
-    image: "/images/meeting.jpg",
+    image: "/images/law2.png",
+    imageAlt:
+      "Woman in legal attire standing beside law books and scales in an office",
     readingTime: "3 min read",
     sections: [
       {
         heading: "Clarity in everyday decisions",
         paragraphs: [
-          "Governance is reflected in the way decisions are made and recorded throughout an organization. Clear responsibilities make it easier to know who should act, who should review and when an issue should be escalated.",
+          "Corporateis reflected in the way decisions are made and recorded throughout an organization. Clear responsibilities make it easier to know who should act, who should review and when an issue should be escalated.",
           "This is sample editorial content for owner review, not a verified publication or a statement of legal requirements.",
         ],
       },
@@ -90,7 +95,9 @@ export const insights: Insight[] = [
     author: "Sample editorial",
     date: "2026-10-09",
     sample: true,
-    image: "/images/workspace.jpg",
+    image: "/images/law3.png",
+    imageAlt:
+      "Man reviewing documents at a desk with law books, a laptop and a gavel",
     readingTime: "3 min read",
     sections: [
       {

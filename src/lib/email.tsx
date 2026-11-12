@@ -17,7 +17,7 @@ export async function sendEnquiry(
     from: config.from,
     to: config.owner,
     replyTo: email,
-    subject: `New ${kind === "contact" ? "Contact Enquiry" : "Consultation Request"} — Stratum Governance Ltd.`,
+    subject: `New ${kind === "contact" ? "Contact Enquiry" : "Consultation Request"} — Stratum Corporate Ltd.`,
     html: ownerNotificationHtml(kind, fields),
     text: Object.entries(fields)
       .map(([k, v]) => `${k}: ${v || "Not supplied"}`)

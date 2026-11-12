@@ -86,10 +86,10 @@ async function main() {
       if (route === "/") {
         assert.equal(
           (await page.locator("h1").textContent()).replace(/\s+/g, " ").trim(),
-          "Stratum Governance Ltd.",
+          "Stratum Corporate Ltd.",
         );
         await expect(page.locator("header .brand-name")).toHaveText(
-          "stratumgov",
+          "StratumCorp",
         );
         if (width >= 1280) {
           assert.equal(
@@ -198,7 +198,7 @@ async function main() {
     waitUntil: "networkidle",
   });
   await expect(page.getByLabel("Subject", { exact: false })).toHaveValue(
-    "Governance enquiry",
+    "Corporateenquiry",
   );
   await page.getByRole("button", { name: "Send your message" }).click();
   await expect(page.getByText("Please enter your full name.")).toBeVisible();

@@ -17,6 +17,7 @@
 }
 @theme inline {
   --color-brand-blue: var(--brand-blue);
+  --color-brand-gold: var(--brand-gold);
   --color-brand-white: var(--brand-white);
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -112,6 +113,7 @@
     --border: color-mix(in srgb, var(--brand-white) 25%, var(--brand-blue));
     --focus: var(--brand-white);
     --surface: color-mix(in srgb, var(--brand-white) 10%, var(--brand-blue));
+    --accent-foreground: var(--brand-gold-light);
     color: var(--foreground);
     background: var(--background);
   }
@@ -131,7 +133,7 @@
     line-height: 1.6;
     letter-spacing: 0.13em;
     font-weight: 600;
-    color: var(--highlight);
+    color: var(--accent-foreground, var(--brand-gold-text));
   }
   .section-title {
     font-size: clamp(30px, 3.3vw, 46px);
@@ -263,6 +265,7 @@
     align-items: center;
     gap: 12px;
     flex-shrink: 0;
+    max-width: 100%;
   }
   .brand-name {
     display: block;
@@ -271,22 +274,31 @@
     line-height: 1.15;
     letter-spacing: -0.045em;
     font-weight: 600;
+    white-space: nowrap;
   }
   .brand-subtitle {
     display: block;
     margin-top: 7px;
     font-size: 14px;
     line-height: 1.4;
-    color: var(--muted-foreground);
+    color: var(--accent-foreground, var(--brand-gold-text));
   }
   .brand-mark {
-    width: 38px;
-    height: 38px;
+    position: relative;
+    display: block;
+    width: 48px;
+    height: 48px;
     flex-shrink: 0;
-    background: currentColor;
-    mask-size: contain;
-    mask-repeat: no-repeat;
-    mask-position: center;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  /* Account for the transparent PNG's padding within the existing footprint. */
+  .brand-logo {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    transform: scale(1.4);
   }
   .nav-link {
     display: flex;
@@ -308,7 +320,7 @@
     bottom: 8px;
     height: 2px;
     width: 100%;
-    background: var(--highlight);
+    background: var(--brand-gold);
   }
   .hero {
     position: relative;
@@ -340,7 +352,7 @@
     align-items: center;
     gap: 10px;
     max-width: 450px;
-    color: var(--muted-foreground);
+    color: var(--brand-gold-light);
     font-size: 14px;
     line-height: 1.65;
     letter-spacing: 0.1em;
@@ -429,7 +441,7 @@
     bottom: 36px;
     left: 28px;
     color: var(--brand-white);
-    border-left: 1px solid var(--brand-white);
+    border-left: 1px solid var(--brand-gold);
     padding-left: 20px;
   }
   .hero-image-label p {
@@ -505,7 +517,7 @@
     display: flex;
     flex-direction: column;
     border: 1px solid var(--border);
-    border-top: 3px solid var(--brand-blue);
+    border-top: 3px solid var(--brand-gold);
     background: var(--card);
   }
   .news-card-copy {
@@ -568,7 +580,7 @@
   }
   .service-icon {
     background: var(--neutral-surface);
-    color: var(--brand-blue);
+    color: var(--brand-gold-text);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -606,7 +618,7 @@
     right: 16px;
     padding: 20px;
     background: var(--brand-white);
-    border-left: 2px solid var(--brand-blue);
+    border-left: 2px solid var(--brand-gold);
     font-size: 16px;
     line-height: 1.65;
   }
@@ -634,6 +646,27 @@
   .site-footer {
     padding-top: 64px;
     background: color-mix(in srgb, var(--brand-blue) 62%, var(--neutral-ink));
+  }
+  .footer-brand-column {
+    min-width: 0;
+  }
+  .footer-brand {
+    position: relative;
+    display: block;
+    width: min(100%, 240px);
+    aspect-ratio: 10 / 7;
+    overflow: hidden;
+    border-radius: 2px;
+  }
+  /* Frame the complete JPEG logo, removing its empty outer margins. */
+  .footer-brand-image {
+    position: absolute;
+    width: 235%;
+    max-width: none;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
   .footer-title {
     font-family: var(--font-body);
@@ -872,8 +905,8 @@
     gap: 8px;
   }
   .brand-mark {
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
   }
   .brand-name {
     font-size: 24px;
