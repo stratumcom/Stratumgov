@@ -36,7 +36,7 @@ src/
     ui/                Official shadcn CLI-generated components
   config/              Company configuration and navigation
   data/                Typed service, FAQ and article content
-  emails/              Owner notifications and optional acknowledgement
+  emails/              Owner notifications and automatic client acknowledgements
   lib/                 Validation, Resend, rate limiting, WhatsApp and SEO
   types/               Shared TypeScript models
 public/
@@ -61,7 +61,6 @@ docs/                  Implementation and verification notes
 | `OWNER_OFFICE_ADDRESS` | Confirmed full office address; displays in contact details and sets the Google Map location. Leave blank until confirmed. |
 | `OWNER_BUSINESS_HOURS` | Confirmed hours displayed in the header and contact details. |
 | `OWNER_FACEBOOK_URL`, `OWNER_X_URL`, `OWNER_LINKEDIN_URL`, `OWNER_INSTAGRAM_URL` | Actual HTTPS company profile URLs; configured profiles appear as header icons and footer links. |
-| `SEND_CLIENT_ACKNOWLEDGEMENT` | Optional consultation acknowledgement; `true` to enable. |
 | `UPSTASH_REDIS_REST_URL` | Shared production Redis HTTP endpoint from Upstash. |
 | `UPSTASH_REDIS_REST_TOKEN` | Server-only Redis token. |
 | `TRUSTED_CLIENT_IP_HEADER` | Non-Vercel hosts only: a header overwritten by the trusted reverse proxy with the actual client IP. |
@@ -79,11 +78,11 @@ The header information bar and contact sidebar share these contact settings. Set
 3. Set `RESEND_FROM_EMAIL` to an address at the verified domain and `OWNER_EMAIL` to the actual business recipient.
 4. Set `RESEND_SENDER_VERIFIED=true` only once verified. This flag records the operator's confirmation; the app does not independently verify domain ownership. Resend will reject an unverified sender.
 5. Configure the production rate limiter as described below and rebuild/restart.
-6. Submit both forms using a real test address. Check the owner inbox, Resend logs, spam folders and optional acknowledgement. Confirm all fields and the Africa/Lagos timestamp. This live delivery check requires your credentials and has not been claimed without them.
+6. Submit both forms using a real test address. Check the owner inbox, Resend logs, spam folders and the automatic acknowledgement in the visitor's inbox. Confirm all fields and the Africa/Lagos timestamp. This live delivery check requires your credentials and has not been claimed without them.
 
 Forms validate in the browser and again on the server. Notifications include every business field, explicit privacy consent, the UUID reference and submission time. Optional company, availability and phone fields are labeled "Not supplied" if empty. The honeypot is an anti-spam field, not business information. The sender is your verified address; reply-to is the visitor's email. User-provided text is escaped in the styled HTML emails, and plain-text alternatives are included. The HTML is built before calling Resend, so delivery does not depend on React email rendering in production.
 
-Success is returned only after Resend accepts the owner notification. If notification delivery fails, the form displays an error. Resend acceptance does not guarantee final inbox delivery. The optional acknowledgement is sent after owner notification acceptance; acknowledgement failure does not misreport the successfully accepted owner notification. Submitting a preferred date does not confirm a booking.
+Success is returned only after Resend accepts the owner notification. If notification delivery fails, the form displays an error. Resend acceptance does not guarantee final inbox delivery. Both contact and consultation submissions automatically send the visitor an acknowledgement saying that their enquiry was received and the team will get back to them shortly. Acknowledgements use the verified sender, include the enquiry reference, and direct replies to `OWNER_EMAIL`. No acknowledgement toggle is needed; the former `SEND_CLIENT_ACKNOWLEDGEMENT` setting is no longer used. The acknowledgement is sent after owner notification acceptance; acknowledgement errors are logged without misreporting the successfully accepted owner notification. Submitting a preferred date does not confirm a booking.
 
 Repeated attempts from the same form retain a UUID, passed as a Resend idempotency key. Resend deduplicates an unchanged request within its documented 24-hour retention window. A hashed reference and timestamp are retained in the same Redis instance for that period to keep retry email payloads identical. No message body is stored in Redis. Editing the submission creates a new reference, so a changed enquiry is not confused with a retry. New independent submissions receive a new reference.
 

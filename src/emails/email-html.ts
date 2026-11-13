@@ -86,12 +86,17 @@ export function ownerNotificationHtml(
   });
 }
 
-export function consultationConfirmationHtml(name: string, reference: string) {
+export function enquiryConfirmationHtml(
+  kind: "contact" | "consultation",
+  name: string,
+  reference: string,
+) {
+  const enquiry = kind === "contact" ? "message" : "consultation request";
   return emailShell({
-    preview: "We received your consultation request and will be in touch about the next steps.",
+    preview: `We have received your ${enquiry} and will get back to you shortly.`,
     label: "REQUEST RECEIVED",
     title: "Thank you for getting in touch.",
-    intro: `Hello ${name}, we have received your consultation request. Our team will review it and contact you using the details you provided.`,
+    intro: `Hello ${name}, thank you for contacting Stratum Corporate Ltd. We have received your ${enquiry} and will get back to you shortly.`,
     body: `<table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" style="background:${brand.goldSurface};border-left:4px solid ${brand.blue};">
       <tr><td style="padding:20px 22px;">
         <div style="color:${brand.blue};font-size:10px;font-weight:700;letter-spacing:0.14em;">YOUR ENQUIRY REFERENCE</div>
@@ -99,7 +104,7 @@ export function consultationConfirmationHtml(name: string, reference: string) {
       </td></tr>
     </table>
     <h2 style="margin:29px 0 9px;color:${brand.blue};font-family:Georgia,'Times New Roman',serif;font-size:23px;font-weight:400;">What happens next?</h2>
-    <p style="margin:0;color:${brand.ink};font-size:15px;line-height:1.75;">We’ll review your request and follow up to discuss the next steps. Your preferred date or format is not a confirmed booking until our team confirms it.</p>`,
+    <p style="margin:0;color:${brand.ink};font-size:15px;line-height:1.75;">Our team will review your ${enquiry} and contact you using the details you provided. You can also reply to this email if you have anything to add.${kind === "consultation" ? " Your preferred date or format is not a confirmed booking until our team confirms it." : ""}</p>`,
     footnote:
       "This is an automated acknowledgement. Please keep your reference if you need to follow up.",
   });

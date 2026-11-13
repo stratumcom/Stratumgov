@@ -1,6 +1,6 @@
 import "server-only";
 import {
-  consultationConfirmationHtml,
+  enquiryConfirmationHtml,
   ownerNotificationHtml,
 } from "@/emails/email-html";
 import { emailConfiguration } from "./resend";
@@ -40,24 +40,29 @@ export async function sendEnquiry(
     });
     return false;
   }
-  if (
-    kind === "consultation" &&
-    process.env.SEND_CLIENT_ACKNOWLEDGEMENT === "true"
-  ) {
-    try {
-      await config.client.emails.send(
-        {
-          from: config.from,
-          to: email,
-          subject: "Your consultation request — stratum Governance",
-          html: consultationConfirmationHtml(name, requestId),
-          text: `Hello ${name}, we have received your consultation request. Reference: ${requestId}. The team will respond separately to confirm any booking.`,
-        },
-        { idempotencyKey: `ack/${requestId}` },
-      );
-    } catch {
-      /* Owner delivery is complete; acknowledgement is optional. */
+  const enquiry = kind === "contact" ? "message" : "consultation request";
+  try {
+    const acknowledgement = await config.client.emails.send(
+      {
+        from: config.from,
+        to: email,
+        replyTo: config.owner,
+        subject: `We have received your ${enquiry} — Stratum Corporate Ltd.`,
+        html: enquiryConfirmationHtml(kind, name, requestId),
+        text: `Hello ${name},\n\nThank you for contacting Stratum Corporate Ltd. We have received your ${enquiry} and will get back to you shortly.\n\nReference: ${requestId}\n\nOur team will review your ${enquiry} and contact you using the details you provided. You can also reply to this email if you have anything to add.${kind === "consultation" ? " Your preferred date or format is not a confirmed booking until our team confirms it." : ""}\n\nThis is an automated acknowledgement. Please keep your reference if you need to follow up.`,
+      },
+      { idempotencyKey: `ack/${kind}/${requestId}` },
+    );
+    if (acknowledgement.error || !acknowledgement.data?.id) {
+      console.error("[email] Client acknowledgement rejected", {
+        type: acknowledgement.error?.name || "missing_email_id",
+        status: acknowledgement.error?.statusCode ?? null,
+      });
     }
+  } catch (error) {
+    console.error("[email] Client acknowledgement failed", {
+      type: error instanceof Error ? error.name : "unknown",
+    });
   }
   return true;
 }
