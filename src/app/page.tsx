@@ -67,7 +67,7 @@ export default function Home() {
           </div>
           <div className="hero-image">
             <Image
-              src="/images/heroimage.jpg"
+              src="/images/architecture.jpg"
               alt=""
               fill
               priority
