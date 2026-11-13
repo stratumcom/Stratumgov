@@ -11,8 +11,8 @@ import { activeServices, getService } from "@/data/services";
 import { promotions } from "@/data/promotions";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
-  "Book a consultation",
-  "Request a consultation to discuss your governance, corporate compliance or regulatory advisory needs.",
+  "Book a Corporate Consultation in Abuja",
+  "Request a consultation with Stratum Corporate Ltd. in Abuja for CAC registration, Nigerian market entry, corporate governance or regulatory compliance support.",
   "/consultation",
 );
 export default async function Consultation({

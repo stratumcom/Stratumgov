@@ -6,21 +6,29 @@ export function PageHeading({
   title,
   description,
   breadcrumb,
+  breadcrumbParent,
 }: {
   eyebrow: string;
   title: string;
   description: string;
   breadcrumb?: string;
+  breadcrumbParent?: { label: string; href: string };
 }) {
   return (
     <section className="page-heading on-blue">
       <Container>
         <nav
           aria-label="Breadcrumb"
-          className="mb-10 flex items-center gap-2 text-sm text-white/80"
+          className="mb-10 flex flex-wrap items-center gap-2 text-sm text-white/80"
         >
           <Link href="/">Home</Link>
           <ChevronRight className="size-3" />
+          {breadcrumbParent && (
+            <>
+              <Link href={breadcrumbParent.href}>{breadcrumbParent.label}</Link>
+              <ChevronRight className="size-3" />
+            </>
+          )}
           <span aria-current="page">{breadcrumb || eyebrow}</span>
         </nav>
         <p className="eyebrow text-highlight">{eyebrow}</p>

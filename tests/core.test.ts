@@ -3,7 +3,7 @@ import assert from "node:assert/strict";
 import { contactSchema, consultationSchema } from "../src/lib/validations";
 import { whatsappUrl } from "../src/lib/whatsapp";
 import { services } from "../src/data/services";
-import { siteUrl } from "../src/config/site";
+import { canIndexSite, siteUrl } from "../src/config/site";
 const base = {
   name: "Jane Example",
   email: "jane@example.com",
@@ -124,23 +124,49 @@ test("catalog has six confirmed service areas with unique slugs and detailed off
   }
 });
 
-test("site address follows Vercel deployment and production domains", () => {
+test("canonical URLs use the live domain while previews and development stay noindexed", () => {
   const previous = {
+    SITE_URL: process.env.SITE_URL,
+    NODE_ENV: process.env.NODE_ENV,
     VERCEL_ENV: process.env.VERCEL_ENV,
     VERCEL_URL: process.env.VERCEL_URL,
     VERCEL_PROJECT_PRODUCTION_URL: process.env.VERCEL_PROJECT_PRODUCTION_URL,
   };
   try {
+    delete process.env.SITE_URL;
     delete process.env.VERCEL_ENV;
     delete process.env.VERCEL_URL;
     delete process.env.VERCEL_PROJECT_PRODUCTION_URL;
-    assert.equal(siteUrl(), "http://localhost:3000");
+    Object.assign(process.env, { NODE_ENV: "development" });
+    assert.equal(siteUrl(), "https://www.stratumcorporate.com");
+    assert.equal(canIndexSite(), false);
+    Object.assign(process.env, { NODE_ENV: "production" });
+    assert.equal(canIndexSite(), true);
     process.env.VERCEL_ENV = "preview";
     process.env.VERCEL_URL = "preview.example.vercel.app";
     process.env.VERCEL_PROJECT_PRODUCTION_URL = "example.vercel.app";
-    assert.equal(siteUrl(), "https://preview.example.vercel.app");
+    assert.equal(siteUrl(), "https://www.stratumcorporate.com");
+    assert.equal(
+      canIndexSite(),
+      false,
+      "preview builds stay excluded even with NODE_ENV=production",
+    );
     process.env.VERCEL_ENV = "production";
-    assert.equal(siteUrl(), "https://example.vercel.app");
+    assert.equal(siteUrl(), "https://www.stratumcorporate.com");
+    assert.equal(canIndexSite(), true);
+    process.env.SITE_URL = "https://www.example.com/";
+    assert.equal(siteUrl(), "https://www.example.com");
+    for (const hostname of ["localhost", "127.0.0.1", "[::1]"]) {
+      process.env.SITE_URL = `http://${hostname}:3000`;
+      assert.equal(canIndexSite(), false, "loopback sites stay excluded");
+    }
+    for (const invalid of [
+      "javascript:alert(1)",
+      "https://user:password@example.com",
+    ]) {
+      process.env.SITE_URL = invalid;
+      assert.throws(siteUrl);
+    }
   } finally {
     for (const [key, value] of Object.entries(previous)) {
       if (value === undefined) delete process.env[key];

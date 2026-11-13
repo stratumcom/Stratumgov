@@ -40,7 +40,7 @@ export function Brand({
         />
       </span>
       <span>
-        <span className="brand-name">StratumCorp</span>
+        <span className="brand-name">Stratum</span>
         <span className="brand-subtitle">Corporate Ltd.</span>
       </span>
     </Link>

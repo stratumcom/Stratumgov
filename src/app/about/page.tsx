@@ -8,9 +8,10 @@ import {
   companyPhilosophy,
 } from "@/data/company-profile";
 import { seo } from "@/lib/seo";
+import { site } from "@/config/site";
 export const metadata = seo(
-  "About us",
-  "Corporate governance, institutional management and regulatory compliance advisory for Nigerian businesses and international investors.",
+  "Corporate Advisory Firm in Abuja, Nigeria",
+  "Meet Stratum Corporate Ltd., an Abuja-based corporate governance, HR and regulatory compliance advisory firm for Nigerian businesses and international investors.",
   "/about",
 );
 export default function About() {
@@ -19,13 +20,19 @@ export default function About() {
       <PageHeading
         eyebrow="ABOUT STRATUM CorporateLTD"
         title="Corporate vision. Strong foundations."
-        description="We bridge the gap between bold corporate vision and rigorous regulatory realities."
+        description={`Corporate governance, institutional management and regulatory compliance advisory from ${site.location}, for Nigerian businesses and international investors.`}
       />
       <section className="section-space">
         <Container className="grid items-center gap-12 md:grid-cols-2">
           <div>
             <p className="eyebrow">OUR COMPANY</p>
             <h2 className="section-title mt-5">About Stratum CorporateLtd</h2>
+            <p className="mt-6 leading-8 text-muted-foreground">
+              Based in {site.location}, Stratum Corporate Ltd. helps local
+              founders, growing businesses and international investors with
+              company formation, market entry and ongoing corporate compliance.
+              Our office is at {site.address}.
+            </p>
             {companyProfile.map((paragraph) => (
               <p
                 key={paragraph}

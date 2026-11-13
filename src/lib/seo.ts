@@ -12,7 +12,9 @@ export function seo(
     alternates: { canonical: path },
     ...(noindex ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
-      title: `${title} | ${site.shortName}`,
+      title: `${title} | ${site.name}`,
+      siteName: site.name,
+      locale: "en_NG",
       description,
       url: path,
       type: "website",

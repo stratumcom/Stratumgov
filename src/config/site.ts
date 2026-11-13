@@ -1,13 +1,21 @@
 import { brand } from "./brand";
 
 export function siteUrl() {
-  const deploymentDomain =
-    process.env.VERCEL_ENV === "production"
-      ? process.env.VERCEL_PROJECT_PRODUCTION_URL || process.env.VERCEL_URL
-      : process.env.VERCEL_URL;
-  return deploymentDomain
-    ? new URL(`https://${deploymentDomain}`).origin
-    : "http://localhost:3000";
+  const url = new URL(process.env.SITE_URL || "https://www.stratumcorporate.com");
+  if (!["https:", "http:"].includes(url.protocol) || url.username || url.password) {
+    throw new Error("SITE_URL must be an HTTP or HTTPS website address.");
+  }
+  return url.origin;
+}
+
+export function canIndexSite() {
+  const production = process.env.VERCEL_ENV
+    ? process.env.VERCEL_ENV === "production"
+    : process.env.NODE_ENV === "production";
+  return (
+    production &&
+    !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(new URL(siteUrl()).hostname)
+  );
 }
 
 const socialProfiles = [
@@ -22,18 +30,20 @@ const socialProfiles = [
 
 export const site = {
   name: "Stratum Corporate Ltd.",
-  shortName: "StratumCorp",
+  shortName: "Stratum Corporate",
   description:
-    "Company formation, market entry, institutional management, intellectual property and regulatory compliance for Nigerian businesses and international investors.",
+    "Stratum Corporate Ltd. in Abuja, Nigeria supports CAC company registration, corporate compliance, HR policies, trademarks, NAFDAC registration and market entry.",
   url: siteUrl(),
   logo: "/images/logo.png",
   email: process.env.OWNER_EMAIL || "",
   phone: process.env.OWNER_PHONE_NUMBER || "",
   whatsapp: process.env.OWNER_WHATSAPP_NUMBER || "",
-  location: process.env.OWNER_LOCATION || "",
+  location: process.env.OWNER_LOCATION || "Abuja, Nigeria",
+  city: process.env.OWNER_CITY || "Abuja",
+  region: process.env.OWNER_REGION || "Federal Capital Territory",
   address:
     process.env.OWNER_OFFICE_ADDRESS ||
-    "Plot 1611/1612 Oka-Akoko Street, Garki, Abuja",
+    "Plot 1611/1612 Oka-Akoko Street, Garki, Abuja, Nigeria",
   businessHours: process.env.OWNER_BUSINESS_HOURS || "",
   socialProfiles,
   socialLinks: socialProfiles.filter(({ url }) => Boolean(url)),
@@ -41,7 +51,4 @@ export const site = {
   team: [] as { name: string; role: string; bio: string; image?: string }[],
   brand,
 };
-export const isProductionSite = process.env.VERCEL_ENV
-  ? process.env.VERCEL_ENV === "production" &&
-    new URL(site.url).hostname !== "localhost"
-  : !new URL(site.url).hostname.match(/^(localhost|127\.0\.0\.1)$/);
+export const isProductionSite = canIndexSite();

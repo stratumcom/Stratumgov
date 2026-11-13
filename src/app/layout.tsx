@@ -6,6 +6,7 @@ import { Footer } from "@/components/layout/footer";
 import { site, isProductionSite } from "@/config/site";
 import { brandProperties } from "@/config/brand";
 import { ScrollReveal } from "@/components/shared/scroll-reveal";
+import { businessStructuredData } from "@/lib/structured-data";
 import "./globals.css";
 const bodyFont = localFont({
   src: "../../public/fonts/dm-sans.ttf",
@@ -23,13 +24,14 @@ const headingFont = localFont({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.shortName} | Corporate compliance, considered.`,
-    template: `%s | ${site.shortName}`,
+    default: `${site.name} | Company Registration & Compliance in Abuja`,
+    template: `%s | ${site.name}`,
   },
   description: site.description,
   robots: { index: isProductionSite, follow: true },
   icons: { icon: "/icons/mark.svg" },
-  openGraph: { siteName: site.shortName, locale: "en_NG", type: "website" },
+  verification: { google: process.env.GOOGLE_SITE_VERIFICATION || undefined },
+  openGraph: { siteName: site.name, locale: "en_NG", type: "website" },
 };
 export default function RootLayout({
   children,
@@ -51,15 +53,10 @@ export default function RootLayout({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: site.name,
-              url: site.url,
-              logo: new URL(site.logo, site.url).href,
-              ...(site.email ? { email: site.email } : {}),
-              ...(site.phone ? { telephone: site.phone } : {}),
-            }).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(businessStructuredData()).replace(
+              /</g,
+              "\\u003c",
+            ),
           }}
         />
       </body>

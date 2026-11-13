@@ -10,6 +10,8 @@ export interface Service {
   slug: string;
   title: string;
   shortDescription: string;
+  seoTitle?: string;
+  seoDescription?: string;
   description: string;
   offerings?: { title: string; description: string }[];
   actionLabel?: string;

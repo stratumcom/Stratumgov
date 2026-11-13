@@ -27,7 +27,8 @@ export const serviceCategories = [
   {
     id: "intellectual-property-protection",
     name: "Brand & intellectual property",
-    title: "Brand Architecture & Intellectual Property Protection",
+    title:
+      "Brand Architecture & Intellectual Property Protection (Trade Mark & Copy Rights)",
     description:
       "We translate your commercial branding, hardware mechanics, and software systems into legally protected, monetizable corporate assets.",
   },
@@ -54,6 +55,9 @@ export const services: Service[] = [
   {
     id: "service-1",
     slug: "company-formation-market-entry",
+    seoTitle: "CAC Company Registration in Abuja",
+    seoDescription:
+      "CAC company registration, business name registration and Nigerian market entry support from Stratum Corporate Ltd. in Abuja for local and foreign investors.",
     title: "Company Formation & Market Entry Structuring",
     category: "Formation & market entry",
     icon: "incorporation",
@@ -120,6 +124,9 @@ export const services: Service[] = [
   {
     id: "service-2",
     slug: "corporate-restructuring",
+    seoTitle: "Company Restructuring in Nigeria",
+    seoDescription:
+      "Company name changes, share capital adjustments, director updates and CAC post-incorporation filings with Stratum Corporate Ltd. in Abuja, Nigeria.",
     title: "Corporate Restructuring & Post-Incorporation Modifications",
     category: "Corporate restructuring",
     icon: "secretarial",
@@ -186,6 +193,9 @@ export const services: Service[] = [
   {
     id: "service-3",
     slug: "institutional-management-hr",
+    seoTitle: "HR Consulting & Workplace Policies in Abuja",
+    seoDescription:
+      "HR consulting, employee handbooks, workplace policies and corporate administrative structures for Nigerian businesses. Speak to our team in Abuja.",
     title:
       "Institutional Management, Human Resources (HR) Procedures & Work Policies",
     category: "Management & HR",
@@ -247,7 +257,11 @@ export const services: Service[] = [
   {
     id: "service-4",
     slug: "intellectual-property-protection",
-    title: "Brand Architecture & Intellectual Property Protection",
+    seoTitle: "Trademark & Patent Registration in Nigeria",
+    seoDescription:
+      "Trademark registration, patent applications and industrial design protection in Nigeria. Discuss your intellectual property needs with our Abuja team.",
+    title:
+      "Brand Architecture & Intellectual Property Protection (Trade Mark & Copy Rights)",
     category: "Brand & intellectual property",
     icon: "review",
     shortDescription:
@@ -295,6 +309,9 @@ export const services: Service[] = [
   {
     id: "service-5",
     slug: "statutory-compliance-maintenance",
+    seoTitle: "CAC Annual Returns & SCUML Compliance",
+    seoDescription:
+      "CAC annual returns, SCUML certification and statutory compliance support for Nigerian businesses, including PenCom, NSITF and ITF. Based in Abuja.",
     title: "Statutory Compliance & Global Corporate Maintenance",
     category: "Statutory compliance",
     icon: "regulatory",
@@ -355,6 +372,9 @@ export const services: Service[] = [
   {
     id: "service-6",
     slug: "product-registration-licensing",
+    seoTitle: "NAFDAC Registration & SON Certification",
+    seoDescription:
+      "NAFDAC product registration, SON certification and industry licensing support in Nigeria. Contact Stratum Corporate Ltd. in Abuja to discuss requirements.",
     title: "Product Registration & Specialized Industry Licensing",
     category: "Product & industry licensing",
     icon: "filings",

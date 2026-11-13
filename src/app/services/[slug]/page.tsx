@@ -15,6 +15,7 @@ import { Button } from "@/components/ui/button";
 import { WhatsAppCTA } from "@/components/shared/whatsapp-cta";
 import { FAQAccordion } from "@/components/faqs/faq-accordion";
 import { ServiceGrid } from "@/components/services/service-grid";
+import { serviceStructuredData } from "@/lib/structured-data";
 export const dynamicParams = false;
 export function generateStaticParams() {
   return activeServices.map((s) => ({ slug: s.slug }));
@@ -26,7 +27,12 @@ export async function generateMetadata({
 }) {
   const s = getService((await params).slug);
   return s
-    ? seo(s.title, s.shortDescription, `/services/${s.slug}`, !s.confirmed)
+    ? seo(
+        s.seoTitle || s.title,
+        s.seoDescription || s.shortDescription,
+        `/services/${s.slug}`,
+        !s.confirmed,
+      )
     : {};
 }
 export default async function ServiceDetail({
@@ -44,7 +50,8 @@ export default async function ServiceDetail({
         ).toUpperCase()}
         title={s.title}
         description={s.shortDescription}
-        breadcrumb="Service detail"
+        breadcrumb={s.title}
+        breadcrumbParent={{ label: "Services", href: "/services" }}
       />
       <section className="section-space">
         <Container className="grid items-start gap-12 lg:grid-cols-[1.5fr_1fr]">
@@ -60,6 +67,14 @@ export default async function ServiceDetail({
             </h2>
             <p className="mt-5 leading-8 text-muted-foreground">
               {s.description}
+            </p>
+            <p className="mt-5 leading-8 text-muted-foreground">
+              Based in {site.location}, our team supports businesses operating
+              across Nigeria.{" "}
+              <Link href="/contact" className="underline underline-offset-4">
+                Contact us
+              </Link>{" "}
+              to discuss your documents, scope and next steps.
             </p>
             {s.problem && (
               <>
@@ -189,14 +204,10 @@ export default async function ServiceDetail({
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Service",
-              name: s.title,
-              description: s.shortDescription,
-              url: `${site.url}/services/${s.slug}`,
-              provider: { "@type": "Organization", name: site.name },
-            }).replace(/</g, "\\u003c"),
+            __html: JSON.stringify(serviceStructuredData(s)).replace(
+              /</g,
+              "\\u003c",
+            ),
           }}
         />
       )}

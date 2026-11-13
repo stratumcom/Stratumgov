@@ -5,8 +5,8 @@ import { CTA } from "@/components/shared/cta";
 import { activeServices } from "@/data/services";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
-  "Service areas",
-  "Explore company formation, restructuring, management and HR, intellectual property, statutory compliance and product licensing services.",
+  "Corporate Services in Abuja, Nigeria",
+  "Explore CAC registration, company restructuring, HR policies, trademarks, statutory compliance and NAFDAC licensing with Stratum Corporate Ltd. in Abuja.",
   "/services",
 );
 export default function Services() {
@@ -15,7 +15,7 @@ export default function Services() {
       <PageHeading
         eyebrow="OUR SERVICE AREAS"
         title="Our comprehensive corporate & management solutions."
-        description="Six service areas supporting your business from formation and market entry through growth, Corporateand ongoing compliance. Select a service to explore the full details."
+        description="From Abuja, we support businesses across Nigeria with company registration, market entry, restructuring, HR policies, intellectual property, statutory compliance and product licensing. Select a service to explore the details."
       />
       <section className="section-space">
         <Container>

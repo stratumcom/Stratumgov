@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-Open http://localhost:3000. The site address is detected automatically in local development and on Vercel. Put email and Redis secrets in `.env.local` or the hosting provider's secret manager. `.env.local` is ignored; never commit it.
+Open http://localhost:3000. Search and sharing URLs use `https://www.stratumcorporate.com`, matching the live site's redirect. Local development and Vercel previews stay excluded from indexing. Put email and Redis secrets in `.env.local` or the hosting provider's secret manager. `.env.local` is ignored; never commit it.
 
 ## Pages
 
@@ -51,14 +51,17 @@ docs/                  Implementation and verification notes
 
 | Variable | Purpose |
 | --- | --- |
+| `SITE_URL` | Optional public canonical origin; defaults to `https://www.stratumcorporate.com`. Use the final HTTPS domain, never a Vercel preview URL. |
+| `GOOGLE_SITE_VERIFICATION` | Optional real `content` value from Search Console's HTML verification tag. Rebuild/redeploy after setting it. |
 | `RESEND_API_KEY` | Server-only sending key from Resend. |
 | `RESEND_FROM_EMAIL` | Verified sender, optionally `Business name <sender@verified-domain>`. Never the visitor's email. |
 | `RESEND_SENDER_VERIFIED` | Set `true` **only after** Resend verifies the actual sender domain/address. Defaults to false. |
 | `OWNER_EMAIL` | Notification recipient and public business contact email. Use an address suitable for publication. |
 | `OWNER_PHONE_NUMBER` | Optional verified public phone number. |
 | `OWNER_WHATSAPP_NUMBER` | Verified international digits only; no plus, spaces or punctuation. |
-| `OWNER_LOCATION` | Short confirmed location for the header, such as the city and country. Falls back to the office address. |
-| `OWNER_OFFICE_ADDRESS` | Confirmed full office address; displays in contact details and sets the Google Map location. Leave blank until confirmed. |
+| `OWNER_LOCATION` | Public location label; defaults to `Abuja, Nigeria`. |
+| `OWNER_OFFICE_ADDRESS` | Full office address for the contact page, About page, footer and structured data. Defaults to the Garki, Abuja address already published in this project. |
+| `OWNER_CITY`, `OWNER_REGION` | Business address fields for search engines; default to `Abuja` and `Federal Capital Territory`. Update alongside the office address if it changes. |
 | `OWNER_BUSINESS_HOURS` | Confirmed hours displayed in the header and contact details. |
 | `OWNER_FACEBOOK_URL`, `OWNER_X_URL`, `OWNER_LINKEDIN_URL`, `OWNER_INSTAGRAM_URL` | Actual HTTPS company profile URLs; configured profiles appear as header icons and footer links. |
 | `UPSTASH_REDIS_REST_URL` | Shared production Redis HTTP endpoint from Upstash. |
@@ -67,9 +70,9 @@ docs/                  Implementation and verification notes
 
 None of the secret values are exposed to browser code. The deliberately public contact details are rendered into server-generated pages. Restart/rebuild after changing environment-backed contact information because static pages may contain build-time values.
 
-On Vercel, enable **Automatically expose System Environment Variables** in Project Settings if it is off. The app uses Vercel's deployment and production domains for metadata, sitemap and sharing URLs. Form origin checking uses the address of the incoming request, so deploying to a new domain does not require editing an environment file.
+Canonical links, sitemap, sharing URLs and structured data consistently use the public domain. `VERCEL_ENV=production` permits production indexing; Vercel preview/development deployments are noindexed and disallowed in robots.txt. Other hosts permit indexing only with `NODE_ENV=production`, with localhost origins still excluded. Form origin checking uses the incoming request and does not depend on the canonical URL. See [the Google Search setup guide](docs/GOOGLE-SEARCH.md) for verification and submission steps.
 
-The header information bar and contact sidebar share these contact settings. Set `OWNER_LOCATION` to a short confirmed location and `OWNER_BUSINESS_HOURS` to the actual opening hours. The full `OWNER_OFFICE_ADDRESS` displays below the contact map and determines its Google Maps search and embed location. Check the resulting pin against the actual office before publishing. When the address is blank, the map panel explains that the office location is awaiting confirmation. The header always shows Facebook, X, LinkedIn and Instagram icons. Icons become links when their HTTPS profile URLs are configured; until then they have a “profile link coming soon” label and no navigation target. The footer includes only configured links; no example company profiles are published.
+The header information bar and contact sidebar share these contact settings. Set `OWNER_BUSINESS_HOURS` to the actual opening hours. The full `OWNER_OFFICE_ADDRESS` also determines the Google Maps search link; the existing map embed identifies the Garki office and must be updated if the office moves. Confirm the public address and map pin before publishing. The header always shows Facebook, X, LinkedIn and Instagram icons. Icons become links when their HTTPS profile URLs are configured; until then they have a “profile link coming soon” label and no navigation target. The footer includes only configured links; no example company profiles are published.
 
 ## Resend setup and email flow
 

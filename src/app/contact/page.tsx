@@ -7,8 +7,8 @@ import { Container } from "@/components/shared/container";
 import { site } from "@/config/site";
 import { seo } from "@/lib/seo";
 export const metadata = seo(
-  "Contact us",
-  "Start a conversation with Stratum Corporate Ltd. about your corporate needs.",
+  "Contact Our Abuja Office",
+  "Contact Stratum Corporate Ltd. in Garki, Abuja, Nigeria for company registration, corporate compliance, HR consulting, trademarks and regulatory support.",
   "/contact",
 );
 export default async function Contact({
@@ -22,7 +22,7 @@ export default async function Contact({
       <PageHeading
         eyebrow="GET IN TOUCH"
         title="Good conversations start here."
-        description="Have a question or a corporate challenge in mind? Tell us a little about it and let’s discuss the next step."
+        description={`Speak to our team in ${site.location} about company registration, corporate compliance, market entry or your business's next steps.`}
       />
       <section className="section-space">
         <Container className="grid items-start gap-8 lg:grid-cols-[1.2fr_.8fr]">

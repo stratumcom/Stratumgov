@@ -75,6 +75,9 @@ export function Footer() {
             <Link className="footer-link" href="/consultation">
               Book a consultation
             </Link>
+            <address className="mb-4 text-sm not-italic leading-6 text-white/80">
+              {site.address}
+            </address>
             {site.email && (
               <a
                 className="footer-link break-all"

@@ -343,7 +343,7 @@
     flex-direction: column;
   }
   .hero-copy {
-    padding-block: 58px 48px;
+    padding-block: 40px 48px;
     position: relative;
     z-index: 2;
   }
@@ -831,7 +831,7 @@
     align-items: center;
   }
   .hero-copy {
-    padding-block: 88px 84px;
+    padding-block: 40px 132px;
   }
   .hero h1 {
     font-size: clamp(44px, 5.2vw, 76px);

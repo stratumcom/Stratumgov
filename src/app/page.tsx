@@ -25,22 +25,29 @@ import { insights } from "@/data/insights";
 import { faqs } from "@/data/faqs";
 import { site } from "@/config/site";
 import { seo } from "@/lib/seo";
-export const metadata = seo(
-  "Corporate compliance, considered.",
-  site.description,
-  "/",
-);
+export const metadata = {
+  ...seo("Company Registration & Compliance in Abuja", site.description, "/"),
+  title: {
+    absolute: `${site.name} | Company Registration & Compliance in Abuja`,
+  },
+};
 export default function Home() {
   return (
     <>
       <section className="hero on-blue">
         <Container className="hero-grid">
           <div className="hero-copy">
-            <div className="hero-kicker  ">
+            <div className="hero-kicker">
               A STRONGER FOUNDATION & STRUCTURE FOR YOUR BUSINESS
             </div>
             <h1>
-              <span>Stratum</span> <span>Corporate Ltd. <sub className="text-4xl">RC - 10003553</sub></span>
+              <span>Stratum</span>{" "}
+              <span>
+                Corporate Ltd.
+                <sub className="ml-3 inline-block whitespace-nowrap text-lg tracking-wide">
+                  RC: 10003553
+                </sub>
+              </span>
             </h1>
             <p className="hero-description">
               Launch, structure and grow your business in Nigeria with corporate
@@ -99,8 +106,11 @@ export default function Home() {
               {companyIntroduction}
             </p>
             <p className="mt-5 text-base leading-7 text-muted-foreground">
-              Our starting point is simple: understand your needs, define the
-              right scope and make the next steps clear.
+              Based in {site.location}, we help businesses across Nigeria with
+              CAC registration and annual returns, HR policies, trademark
+              protection, NAFDAC registration and market entry. We start by
+              understanding your needs, defining the scope and making the next
+              steps clear.
             </p>
             <Link href="/about" className="text-link mt-7">
               Discover our full profile
