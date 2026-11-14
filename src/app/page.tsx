@@ -49,11 +49,39 @@ export default function Home() {
                 </sub>
               </span>
             </h1>
-            <p className="hero-description">
-              Launch, structure and grow your business in Nigeria with corporate
-              governance, institutional management and regulatory compliance
-              support for local founders and international investors.
-            </p>
+            <div className="hero-description">
+              <p>
+                At Stratum Corporate, we help local founders and international
+                investors launch, structure, and grow compliant businesses in
+                Nigeria.
+              </p>
+              <p className="mt-2">
+                Our institutional management and corporate support cover:
+              </p>
+              <ul className="mt-4 list-disc space-y-3 pl-5">
+                <li>
+                  <strong className="font-semibold text-brand-white">
+                    Business Setup &amp; Protection:
+                  </strong>{" "}
+                  CAC registration (Companies, NGOs, Churches), SCUML
+                  certification, and Trademarks, Patents, and Designs.
+                </li>
+                <li>
+                  <strong className="font-semibold text-brand-white">
+                    Corporate Governance:
+                  </strong>{" "}
+                  Board advisory, company secretarial services, and company
+                  restructuring.
+                </li>
+                <li>
+                  <strong className="font-semibold text-brand-white">
+                    Ongoing Compliance:
+                  </strong>{" "}
+                  Annual returns, PENCOM, NSITF, and other statutory regulatory
+                  filings.
+                </li>
+              </ul>
+            </div>
             <div className="hero-actions">
               <Button
                 asChild
@@ -106,11 +134,7 @@ export default function Home() {
               {companyIntroduction}
             </p>
             <p className="mt-5 text-base leading-7 text-muted-foreground">
-              Based in {site.location}, we help businesses across Nigeria with
-              CAC registration and annual returns, HR policies, trademark
-              protection, NAFDAC registration and market entry. We start by
-              understanding your needs, defining the scope and making the next
-              steps clear.
+              Based in {site.location}, we help businesses across Nigeria and foreign investors with CAC Registration and Annual Return Filings, HR policies, trademark protection, NAFDAC registration and other market entry and compliance procedures. We start by understanding your needs, defining the scope and making the next steps clear.
             </p>
             <Link href="/about" className="text-link mt-7">
               Discover our full profile
